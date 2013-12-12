@@ -1,6 +1,7 @@
 package de.malkusch.validation.test.cases;
 
 import java.lang.annotation.Annotation;
+import java.util.Locale;
 import java.util.Set;
 
 import javax.validation.ConstraintViolation;
@@ -34,7 +35,8 @@ abstract public class AbstractViolationTest {
 	}
 	
 	@Test
-	public void testValid() {
+	public void testViolation() {
+		Locale.setDefault(Locale.ENGLISH);
 		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 
 		Set<ConstraintViolation<Object>> violations = factory.getValidator()

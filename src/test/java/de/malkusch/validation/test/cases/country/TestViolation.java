@@ -22,17 +22,32 @@ public class TestViolation extends AbstractViolationTest {
 	@Parameters
 	static public Iterable<Object[]> beans() {
 		LinkedList<Object[]> cases = new LinkedList<>();
-
+		Class<? extends Annotation> constraint = Country.class;
+		String message = "The country code is invalid.";
 		{
 			CountryBean bean = new CountryBean();
 			String value = "xxx";
 			bean.setCountry(value);
-			String message = "The country code is invalid.";
-			Class<? extends Annotation> constraint = Country.class;
-			
 			cases.add(new Object[] {constraint, bean, value, message});
 		}
-
+		{
+			CountryBean bean = new CountryBean();
+			String value = "";
+			bean.setCountry(value);
+			cases.add(new Object[] {constraint, bean, value, message});
+		}
+		{
+			CountryBean bean = new CountryBean();
+			String value = "x";
+			bean.setCountry(value);
+			cases.add(new Object[] {constraint, bean, value, message});
+		}
+		{
+			CountryBean bean = new CountryBean();
+			String value = "x1";
+			bean.setCountry(value);
+			cases.add(new Object[] {constraint, bean, value, message});
+		}
 		return cases;
 	}
 
