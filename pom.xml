@@ -5,7 +5,7 @@
 	<artifactId>validation</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>validation</name>
-	<description>Set of JSR-303 validators</description>
+	<description>Set of additional JSR-303 constraints</description>
 
 	<parent>
 		<groupId>de.malkusch.parent</groupId>
@@ -26,13 +26,26 @@
 			<artifactId>validation-api</artifactId>
 			<version>1.1.0.Final</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>joda-time</groupId>
 			<artifactId>joda-time</artifactId>
 			<version>2.3</version>
 			<scope>provided</scope>
 			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.0.1.Final</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.web</groupId>
+			<artifactId>javax.el</artifactId>
+			<version>2.2.6</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 </project>
