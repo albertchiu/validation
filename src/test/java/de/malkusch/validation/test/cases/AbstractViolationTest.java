@@ -27,7 +27,7 @@ abstract public class AbstractViolationTest {
 	
 	private Violation[] violations;
 	
-	private AbstractBean<?> bean;
+	protected AbstractBean<?> bean;
 
 	public <T>AbstractViolationTest(Class<AbstractBean<T>> beanType, T property, Violation... violations) {
 		try {
@@ -56,7 +56,7 @@ abstract public class AbstractViolationTest {
 		Set<Violation> actualViolations = new HashSet<>();
 		
 		for (ConstraintViolation<Object> violation : (Set<ConstraintViolation<Object>>) constraintViolations) {
-			Assert.assertEquals(property, violation.getInvalidValue());
+			testInvalidValue(violation);
 			Assert.assertEquals(
 					String.format("{%s.message}", violation.getConstraintDescriptor().getAnnotation().annotationType().getName()),
 					violation.getMessageTemplate());
@@ -69,6 +69,10 @@ abstract public class AbstractViolationTest {
 		Assert.assertEquals(
 				new HashSet<>(Arrays.asList(violations)),
 				actualViolations);
+	}
+	
+	protected void testInvalidValue(ConstraintViolation<Object> violation) {
+		Assert.assertEquals(property, violation.getInvalidValue());
 	}
 
 }
