@@ -10,8 +10,8 @@ import org.junit.runners.Parameterized.Parameters;
 
 import de.malkusch.validation.constraints.age.Age;
 import de.malkusch.validation.test.cases.AbstractViolationTest;
-import de.malkusch.validation.test.model.AgeBean;
 import de.malkusch.validation.test.model.Violation;
+import de.malkusch.validation.test.model.bean.AgeBean;
 
 /**
  * @author Markus Malkusch <markus@malkusch.de>

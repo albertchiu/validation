@@ -1,11 +1,11 @@
-package de.malkusch.validation.test.cases.bic;
+package de.malkusch.validation.test.cases.iban;
 
 import java.util.LinkedList;
 
 import org.junit.runners.Parameterized.Parameters;
 
 import de.malkusch.validation.test.cases.AbstractValidTest;
-import de.malkusch.validation.test.model.bean.BICModel;
+import de.malkusch.validation.test.model.bean.IBANModel;
 
 /**
  * @author Markus Malkusch <markus@malkusch.de>
@@ -21,14 +21,14 @@ public class TestValid extends AbstractValidTest {
 		LinkedList<Object[]> cases = new LinkedList<>();
 
 		{
-			BICModel bicBean = new BICModel();
-			cases.add(new Object[] { bicBean });
+			IBANModel bean = new IBANModel();
+			cases.add(new Object[] { bean });
 		}
 		
 		{
-			BICModel bicBean = new BICModel();
-			bicBean.setBig("RAIFCH22");
-			cases.add(new Object[] { bicBean });
+			IBANModel bean = new IBANModel();
+			bean.setIban("DE68210501700012345678");
+			cases.add(new Object[] { bean });
 		}
 		
 		return cases;

@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import org.junit.runners.Parameterized.Parameters;
 
 import de.malkusch.validation.test.cases.AbstractValidTest;
-import de.malkusch.validation.test.model.CountryBean;
+import de.malkusch.validation.test.model.bean.CountryBean;
 
 /**
  * @author Markus Malkusch <markus@malkusch.de>

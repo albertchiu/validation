@@ -1,15 +1,15 @@
-package de.malkusch.validation.test.model;
+package de.malkusch.validation.test.model.bean;
 
 import org.joda.time.LocalDate;
 
-import de.malkusch.validation.constraints.age.Adult;
+import de.malkusch.validation.constraints.age.Age;
 
 /**
  * @author Markus Malkusch <markus@malkusch.de>
  */
-public class AdultBean {
+public class AgeBean {
 
-	@Adult
+	@Age(20)
 	private LocalDate birth;
 
 	public LocalDate getBirth() {

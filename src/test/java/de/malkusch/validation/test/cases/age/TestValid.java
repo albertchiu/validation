@@ -6,7 +6,7 @@ import org.joda.time.LocalDate;
 import org.junit.runners.Parameterized.Parameters;
 
 import de.malkusch.validation.test.cases.AbstractValidTest;
-import de.malkusch.validation.test.model.AgeBean;
+import de.malkusch.validation.test.model.bean.AgeBean;
 
 /**
  * @author Markus Malkusch <markus@malkusch.de>

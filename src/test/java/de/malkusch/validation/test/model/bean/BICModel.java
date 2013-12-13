@@ -1,4 +1,4 @@
-package de.malkusch.validation.test.model;
+package de.malkusch.validation.test.model.bean;
 
 import de.malkusch.validation.constraints.BIC;
 

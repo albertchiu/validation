@@ -6,8 +6,8 @@ import org.junit.runners.Parameterized.Parameters;
 
 import de.malkusch.validation.constraints.BIC;
 import de.malkusch.validation.test.cases.AbstractViolationTest;
-import de.malkusch.validation.test.model.BICModel;
 import de.malkusch.validation.test.model.Violation;
+import de.malkusch.validation.test.model.bean.BICModel;
 
 /**
  * @author Markus Malkusch <markus@malkusch.de>

@@ -6,8 +6,8 @@ import org.junit.runners.Parameterized.Parameters;
 
 import de.malkusch.validation.constraints.Country;
 import de.malkusch.validation.test.cases.AbstractViolationTest;
-import de.malkusch.validation.test.model.CountryBean;
 import de.malkusch.validation.test.model.Violation;
+import de.malkusch.validation.test.model.bean.CountryBean;
 
 /**
  * @author Markus Malkusch <markus@malkusch.de>

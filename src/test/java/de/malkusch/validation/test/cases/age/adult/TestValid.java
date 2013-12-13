@@ -7,7 +7,7 @@ import org.joda.time.Years;
 import org.junit.runners.Parameterized.Parameters;
 
 import de.malkusch.validation.test.cases.AbstractValidTest;
-import de.malkusch.validation.test.model.AdultBean;
+import de.malkusch.validation.test.model.bean.AdultBean;
 
 /**
  * @author Markus Malkusch <markus@malkusch.de>
