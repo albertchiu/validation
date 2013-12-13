@@ -10,7 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import de.malkusch.validation.constraints.upload.Image;
 
-public class ImageValidator implements ConstraintValidator<Image, MultipartFile> {
+public class ImageValidatorForMultipartFile implements ConstraintValidator<Image, MultipartFile> {
 	
 	@Override
 	public void initialize(Image constraintAnnotation) {

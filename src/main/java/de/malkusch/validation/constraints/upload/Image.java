@@ -15,7 +15,7 @@ import javax.validation.Payload;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import de.malkusch.validation.validator.upload.ImageValidator;
+import de.malkusch.validation.validator.upload.ImageValidatorForMultipartFile;
 
 /**
  * The MultipartFile must be an image.
@@ -27,7 +27,7 @@ import de.malkusch.validation.validator.upload.ImageValidator;
  */
 @Target( { METHOD, FIELD, ANNOTATION_TYPE })
 @Retention(RUNTIME)
-@Constraint(validatedBy = ImageValidator.class)
+@Constraint(validatedBy = ImageValidatorForMultipartFile.class)
 @Documented
 public @interface Image {
 

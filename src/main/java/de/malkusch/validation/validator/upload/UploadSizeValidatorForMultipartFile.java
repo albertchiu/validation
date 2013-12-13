@@ -12,7 +12,7 @@ import de.malkusch.validation.constraints.upload.UploadSize;
  * @author malkusch
  */
 @Deprecated
-public class UploadSizeValidator implements ConstraintValidator<UploadSize, MultipartFile> {
+public class UploadSizeValidatorForMultipartFile implements ConstraintValidator<UploadSize, MultipartFile> {
 	
 	private long min;
 	

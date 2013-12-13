@@ -14,7 +14,7 @@ import javax.validation.Payload;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import de.malkusch.validation.validator.upload.ContentTypeValidator;
+import de.malkusch.validation.validator.upload.ContentTypeValidatorForMultipartFile;
 
 /**
  * The MultipartFile must match a ContentType.
@@ -26,7 +26,7 @@ import de.malkusch.validation.validator.upload.ContentTypeValidator;
  */
 @Target( { METHOD, FIELD, ANNOTATION_TYPE })
 @Retention(RUNTIME)
-@Constraint(validatedBy = ContentTypeValidator.class)
+@Constraint(validatedBy = ContentTypeValidatorForMultipartFile.class)
 @Documented
 public @interface ContentType {
 

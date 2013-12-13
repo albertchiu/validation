@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-import de.malkusch.validation.validator.banking.IBANValidator;
+import de.malkusch.validation.validator.banking.IBANValidatorForString;
 
 /**
  * The String must be a valid IBAN address.
@@ -21,7 +21,7 @@ import de.malkusch.validation.validator.banking.IBANValidator;
  */
 @Target( { METHOD, FIELD, ANNOTATION_TYPE })
 @Retention(RUNTIME)
-@Constraint(validatedBy=IBANValidator.class)
+@Constraint(validatedBy=IBANValidatorForString.class)
 @Documented
 public @interface IBAN {
 

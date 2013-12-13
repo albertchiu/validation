@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-import de.malkusch.validation.validator.banking.BICValidator;
+import de.malkusch.validation.validator.banking.BICValidatorForString;
 
 /**
  * The String must be a valid BIC address.
@@ -21,7 +21,7 @@ import de.malkusch.validation.validator.banking.BICValidator;
  */
 @Target( { METHOD, FIELD, ANNOTATION_TYPE })
 @Retention(RUNTIME)
-@Constraint(validatedBy=BICValidator.class)
+@Constraint(validatedBy=BICValidatorForString.class)
 @Documented
 public @interface BIC {
 

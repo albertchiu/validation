@@ -7,7 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import de.malkusch.validation.constraints.upload.NotEmptyUpload;
 
-public class NotEmptyUploadValidator implements ConstraintValidator<NotEmptyUpload, MultipartFile> {
+public class NotEmptyUploadValidatorForMultipartFile implements ConstraintValidator<NotEmptyUpload, MultipartFile> {
 
 	@Override
 	public void initialize(NotEmptyUpload constraintAnnotation) {

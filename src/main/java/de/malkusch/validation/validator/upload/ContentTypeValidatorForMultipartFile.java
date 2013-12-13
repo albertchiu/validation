@@ -8,7 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import de.malkusch.validation.constraints.upload.ContentType;
 
-public class ContentTypeValidator implements ConstraintValidator<ContentType, MultipartFile> {
+public class ContentTypeValidatorForMultipartFile implements ConstraintValidator<ContentType, MultipartFile> {
 	
 	private javax.mail.internet.ContentType contentType;
 

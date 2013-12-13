@@ -4,7 +4,7 @@ import org.joda.time.DateTime;
 import org.joda.time.ReadableInstant;
 import org.joda.time.Years;
 
-public class ReadableInstantAgeValidator extends AbstractAgeValidator<ReadableInstant> {
+public class AgeValidatorForReadableInstant extends AbstractAgeValidator<ReadableInstant> {
 
 	@Override
 	protected Years getAge(ReadableInstant date) {

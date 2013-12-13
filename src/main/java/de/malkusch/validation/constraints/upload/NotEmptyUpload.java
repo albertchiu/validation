@@ -14,7 +14,7 @@ import javax.validation.Payload;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import de.malkusch.validation.validator.upload.NotEmptyUploadValidator;
+import de.malkusch.validation.validator.upload.NotEmptyUploadValidatorForMultipartFile;
 
 /**
  * The MultipartFile must not be empty.
@@ -25,7 +25,7 @@ import de.malkusch.validation.validator.upload.NotEmptyUploadValidator;
  */
 @Target( { METHOD, FIELD, ANNOTATION_TYPE })
 @Retention(RUNTIME)
-@Constraint(validatedBy = NotEmptyUploadValidator.class)
+@Constraint(validatedBy = NotEmptyUploadValidatorForMultipartFile.class)
 @Documented
 public @interface NotEmptyUpload {
 

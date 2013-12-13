@@ -6,7 +6,7 @@ import javax.validation.ConstraintValidatorContext;
 import de.malkusch.validation.constraints.banking.BIC;
 import fr.marcwrobel.jbanking.bic.Bic;
 
-public class BICValidator implements ConstraintValidator<BIC, String> {
+public class BICValidatorForString implements ConstraintValidator<BIC, String> {
 
 	@Override
 	public void initialize(BIC constraintAnnotation) {
