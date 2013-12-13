@@ -7,6 +7,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import de.malkusch.validation.constraints.upload.UploadSize;
 
+/**
+ * @deprecated use {@link SizeValidatorForMultipartFile}. 
+ * @author malkusch
+ */
+@Deprecated
 public class UploadSizeValidator implements ConstraintValidator<UploadSize, MultipartFile> {
 	
 	private long min;

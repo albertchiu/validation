@@ -26,7 +26,7 @@ abstract public class AbstractValidTest {
 	@Test
 	public void testValid() {
 		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-
+		
 		Set<ConstraintViolation<Object>> violations = factory.getValidator()
 				.validate(bean);
 

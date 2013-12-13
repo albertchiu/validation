@@ -11,9 +11,11 @@ import java.lang.annotation.Target;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
+import javax.validation.constraints.Size;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import de.malkusch.validation.validator.upload.SizeValidatorForMultipartFile;
 import de.malkusch.validation.validator.upload.UploadSizeValidator;
 
 /**
@@ -21,12 +23,15 @@ import de.malkusch.validation.validator.upload.UploadSizeValidator;
  * 
  * This constraint works only on Spring's {@link MultipartFile}.
  * 
+ * @deprecated Use @{@link Size} annotation. See {@link SizeValidatorForMultipartFile}
+ *             for how to activate that functionality. 
  * @author Markus Malkusch <markus@malkusch.de>
  */
 @Target( { METHOD, FIELD, ANNOTATION_TYPE })
 @Retention(RUNTIME)
 @Constraint(validatedBy = UploadSizeValidator.class)
 @Documented
+@Deprecated
 public @interface UploadSize {
 
 	String message() default "{de.malkusch.validation.constraints.upload.UploadSize.message}";
