@@ -21,6 +21,7 @@ import de.malkusch.validation.validator.internal.SamePropertiesValidator;
  * will be raised on the copied property!
  * 
  * @author Markus Malkusch <markus@malkusch.de>
+ * @since 0.1.0
  */
 @Target({ TYPE, ANNOTATION_TYPE })
 @Retention(RUNTIME)
