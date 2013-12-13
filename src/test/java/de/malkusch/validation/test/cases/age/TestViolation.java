@@ -1,11 +1,15 @@
 package de.malkusch.validation.test.cases.age;
 
+import java.util.Date;
 import java.util.LinkedList;
 
 import javax.validation.constraints.Past;
 
+import org.joda.time.DateTime;
 import org.joda.time.Days;
 import org.joda.time.LocalDate;
+import org.joda.time.ReadableInstant;
+import org.joda.time.ReadablePartial;
 import org.junit.runners.Parameterized.Parameters;
 
 import de.malkusch.validation.constraints.age.Age;
@@ -28,14 +32,26 @@ public class TestViolation extends AbstractViolationTest {
 		Violation violation = new Violation(Age.class, "The Age must be at least 20 years.");
 		{
 			AgeBean bean = new AgeBean();
-			LocalDate value = LocalDate.now().minus(Days.ONE);
-			bean.setBirth(value);
+			ReadablePartial value = LocalDate.now().minus(Days.ONE);
+			bean.setPartial(value);
+			cases.add(new Object[] {bean, value, new Violation[] { violation }});
+		}
+		{
+			AgeBean bean = new AgeBean();
+			ReadableInstant value = DateTime.now().minus(Days.ONE);
+			bean.setInstant(value);
+			cases.add(new Object[] {bean, value, new Violation[] { violation }});
+		}
+		{
+			AgeBean bean = new AgeBean();
+			Date value = LocalDate.now().minus(Days.ONE).toDate();
+			bean.setDate(value);
 			cases.add(new Object[] {bean, value, new Violation[] { violation }});
 		}
 		{
 			AgeBean bean = new AgeBean();
 			LocalDate value = new LocalDate().plusYears(5);
-			bean.setBirth(value);
+			bean.setPartial(value);
 			cases.add(new Object[] {
 					bean,
 					value,
