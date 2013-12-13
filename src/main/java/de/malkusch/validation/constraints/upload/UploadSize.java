@@ -15,8 +15,8 @@ import javax.validation.constraints.Size;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import de.malkusch.validation.validator.upload.SizeValidatorForMultipartFile;
-import de.malkusch.validation.validator.upload.UploadSizeValidatorForMultipartFile;
+import de.malkusch.validation.validator.internal.upload.UploadSizeValidatorForMultipartFile;
+import de.malkusch.validation.validator.jsr303.size.SizeValidatorForMultipartFile;
 
 /**
  * The MultipartFile's size must be in the specified boundaries (included).

@@ -1,4 +1,4 @@
-package de.malkusch.validation.validator.banking;
+package de.malkusch.validation.validator.internal.banking;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

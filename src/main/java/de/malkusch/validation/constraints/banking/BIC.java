@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-import de.malkusch.validation.validator.banking.BICValidatorForString;
+import de.malkusch.validation.validator.internal.banking.BICValidatorForString;
 
 /**
  * The String must be a valid BIC address.

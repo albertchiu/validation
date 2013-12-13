@@ -10,8 +10,11 @@ have to provide those dependencies:
 * `de.malkusch.validation.constraints.upload.*` requires `org.springframework.web` and `javax.mail.mail`.
 
 # Additional Validators for JSR-303 built-ins
-If you want to add more types to some JSR-303 built-ins you have to include the mapping
-resource **META-INF/validation/mapping.xml**. You have to either create a **META-INF/validation.xml**
+This package extends some JSR-303 built-in constraints with validators for additional types. Look into the
+package `de.malkusch.validation.validator.jsr303` to see which validators exist.
+If you want to use these validators you have to include the mapping
+resource **META-INF/validation/mapping.xml**. This can be done by 
+preferably create the file **META-INF/validation.xml**
 and add that mapping or you do it programmatically with `Configuration.addMapping(java.io.InputStream)`:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-import de.malkusch.validation.validator.banking.IBANValidatorForString;
+import de.malkusch.validation.validator.internal.banking.IBANValidatorForString;
 
 /**
  * The String must be a valid IBAN address.

@@ -1,4 +1,4 @@
-package de.malkusch.validation.validator.upload;
+package de.malkusch.validation.validator.jsr303.size;
 
 import javax.validation.Configuration;
 import javax.validation.ConstraintValidator;

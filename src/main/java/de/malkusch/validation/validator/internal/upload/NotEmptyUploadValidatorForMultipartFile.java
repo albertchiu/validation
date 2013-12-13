@@ -1,4 +1,4 @@
-package de.malkusch.validation.validator.upload;
+package de.malkusch.validation.validator.internal.upload;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

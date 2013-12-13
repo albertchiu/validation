@@ -4,7 +4,7 @@
 
 	<constraint-definition annotation="javax.validation.constraints.Size">
 		<validated-by include-existing-validators="true">
-			<value>de.malkusch.validation.validator.upload.SizeValidatorForMultipartFile</value>
+			<value>de.malkusch.validation.validator.jsr303.size.SizeValidatorForMultipartFile</value>
 		</validated-by>
 	</constraint-definition>
 </constraint-mappings>

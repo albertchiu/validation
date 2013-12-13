@@ -14,7 +14,7 @@ import javax.validation.Payload;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import de.malkusch.validation.validator.upload.NotEmptyUploadValidatorForMultipartFile;
+import de.malkusch.validation.validator.internal.upload.NotEmptyUploadValidatorForMultipartFile;
 
 /**
  * The MultipartFile must not be empty.

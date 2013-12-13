@@ -16,8 +16,8 @@ import javax.validation.constraints.Past;
 import org.joda.time.ReadableInstant;
 import org.joda.time.ReadablePartial;
 
-import de.malkusch.validation.validator.age.AgeValidatorForReadableInstant;
-import de.malkusch.validation.validator.age.AgeValidatorForReadablePartial;
+import de.malkusch.validation.validator.internal.age.AgeValidatorForReadableInstant;
+import de.malkusch.validation.validator.internal.age.AgeValidatorForReadablePartial;
 
 /**
  * The Date must be in the past and at least that years old.

@@ -14,7 +14,7 @@ import javax.validation.Payload;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import de.malkusch.validation.validator.upload.ContentTypeValidatorForMultipartFile;
+import de.malkusch.validation.validator.internal.upload.ContentTypeValidatorForMultipartFile;
 
 /**
  * The MultipartFile must match a ContentType.

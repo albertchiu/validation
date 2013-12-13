@@ -1,4 +1,4 @@
-package de.malkusch.validation.validator.age;
+package de.malkusch.validation.validator.internal.age;
 
 import org.joda.time.DateTime;
 import org.joda.time.ReadableInstant;
