@@ -4,6 +4,7 @@ import java.util.LinkedList;
 
 import javax.validation.constraints.Past;
 
+import org.joda.time.Days;
 import org.joda.time.LocalDate;
 import org.junit.runners.Parameterized.Parameters;
 
@@ -27,7 +28,7 @@ public class TestViolation extends AbstractViolationTest {
 		Violation violation = new Violation(Age.class, "The Age must be at least 20 years.");
 		{
 			AgeBean bean = new AgeBean();
-			LocalDate value = new LocalDate();
+			LocalDate value = LocalDate.now().minus(Days.ONE);
 			bean.setBirth(value);
 			cases.add(new Object[] {bean, value, new Violation[] { violation }});
 		}
