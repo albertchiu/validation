@@ -1,4 +1,4 @@
-package de.malkusch.validation.validator;
+package de.malkusch.validation.validator.upload;
 
 import javax.mail.internet.ParseException;
 import javax.validation.ConstraintValidator;

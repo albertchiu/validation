@@ -1,4 +1,4 @@
-package de.malkusch.validation.test.model.bean;
+package de.malkusch.validation.test.model.bean.upload;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -7,7 +7,7 @@ import de.malkusch.validation.constraints.upload.ContentType;
 /**
  * @author Markus Malkusch <markus@malkusch.de>
  */
-public class UploadContentTypeBean {
+public class ContentTypeBean {
 
 	@ContentType("image/*")
 	private MultipartFile file;

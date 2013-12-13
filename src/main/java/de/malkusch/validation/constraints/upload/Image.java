@@ -9,37 +9,28 @@ import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
+import javax.imageio.ImageIO;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-import org.springframework.web.multipart.MultipartFile;
-
-import de.malkusch.validation.validator.upload.ContentTypeValidator;
+import de.malkusch.validation.validator.upload.ImageValidator;
 
 /**
- * The MultipartFile must match a ContentType.
- * 
- * This constraint works only on Spring's {@link MultipartFile}.
- * You have to provide javax.mail for the matching.
+ * The MultipartFile must be an image.
+ * I.e. the file is readable by {@link ImageIO}
  * 
  * @author Markus Malkusch <markus@malkusch.de>
  */
 @Target( { METHOD, FIELD, ANNOTATION_TYPE })
 @Retention(RUNTIME)
-@Constraint(validatedBy = ContentTypeValidator.class)
+@Constraint(validatedBy = ImageValidator.class)
 @Documented
-public @interface ContentType {
+public @interface Image {
 
-	String message() default "{de.malkusch.validation.constraints.upload.ContentType.message}";
+	String message() default "{de.malkusch.validation.constraints.upload.Image.message}";
 
     Class<?>[] groups() default {};
 
     Class<? extends Payload>[] payload() default {};
 	
-    /**
-	 * @return ContentType constraint
-	 * @see javax.mail.internet.ContentType#match(String)
-	 */
-    String value();
-    
 }

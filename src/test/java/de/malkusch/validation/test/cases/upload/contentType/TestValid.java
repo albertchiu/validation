@@ -6,7 +6,7 @@ import org.junit.runners.Parameterized.Parameters;
 import org.springframework.mock.web.MockMultipartFile;
 
 import de.malkusch.validation.test.cases.AbstractValidTest;
-import de.malkusch.validation.test.model.bean.UploadContentTypeBean;
+import de.malkusch.validation.test.model.bean.upload.ContentTypeBean;
 
 /**
  * @author Markus Malkusch <markus@malkusch.de>
@@ -21,16 +21,16 @@ public class TestValid extends AbstractValidTest {
 	static public Iterable<Object[]> beans() {
 		LinkedList<Object[]> cases = new LinkedList<>();
 		{
-			UploadContentTypeBean bean = new UploadContentTypeBean();
+			ContentTypeBean bean = new ContentTypeBean();
 			cases.add(new Object[] { bean });
 		}
 		{
-			UploadContentTypeBean bean = new UploadContentTypeBean();
+			ContentTypeBean bean = new ContentTypeBean();
 			bean.setFile(new MockMultipartFile("file", new byte[]{}));
 			cases.add(new Object[] { bean });
 		}
 		{
-			UploadContentTypeBean bean = new UploadContentTypeBean();
+			ContentTypeBean bean = new ContentTypeBean();
 			bean.setFile(new MockMultipartFile("file", "file", "image/png", new byte[]{1}));
 			cases.add(new Object[] { bean });
 		}
