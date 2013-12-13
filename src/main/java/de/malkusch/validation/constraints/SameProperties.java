@@ -9,16 +9,18 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 import javax.validation.Constraint;
+import javax.validation.ConstraintViolation;
 import javax.validation.Payload;
 
 import de.malkusch.validation.validator.internal.SamePropertiesValidator;
 
 /**
- * The bean has two properties with equal values.
+ * The bean has properties with equal values.
  * 
- * This constraint decorates a bean at class level. But if the property
- * {@link #copy()} is different to {@link #original()} a ConstraintViolation
- * will be raised on the copied property!
+ * Add this constraint at class level and name the property names
+ * which have to be equal. Set {@link #violationOnPropery()} to true
+ * if you want the {@link ConstraintViolation} on each of the violating
+ * properties instead of the bean.
  * 
  * @author Markus Malkusch <markus@malkusch.de>
  * @since 0.1.0
@@ -36,14 +38,14 @@ public @interface SameProperties {
 	Class<? extends Payload>[] payload() default {};
 
 	/**
-	 * @return property name
+	 * @return property names which have to have equal values
 	 */
-	String original();
-
+	String[] value();
+	
 	/**
-	 * @return property name
+	 * @return Set true if the violation should be propagated on the violating properties.
 	 */
-	String copy();
+	boolean violationOnPropery() default false;
 
 	/**
 	 * Defines several {@link SameProperties} annotations on the same element.

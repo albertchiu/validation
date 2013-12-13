@@ -16,7 +16,7 @@ public class TestValid extends AbstractValidTest {
 	
 	static final private String originalValue = "originalValue";
 
-	@SameProperties(original="original", copy="property")
+	@SameProperties({"original", "property"})
 	public static class Bean extends AbstractBean<String> {
 		
 		private String original = originalValue;

@@ -13,14 +13,19 @@ import de.malkusch.validation.constraints.SameProperties;
 public class SamePropertiesValidator implements
 		ConstraintValidator<SameProperties, Object> {
 
-	private String property;
-
-	private String repeatedProperty;
+	private String[] properties;
+	
+	private boolean violationOnProperty;
 
 	@Override
 	public void initialize(SameProperties constraint) {
-		property = constraint.original();
-		repeatedProperty = constraint.copy();
+		properties = constraint.value();
+		if (properties == null || properties.length < 2) {
+			throw new ValidationException("You have to define at least 2 properties");
+			
+		}
+		
+		violationOnProperty = constraint.violationOnPropery();
 	}
 
 	@Override
@@ -32,29 +37,32 @@ public class SamePropertiesValidator implements
 
 			}
 			
-			Object value = PropertyUtils.getSimpleProperty(bean,
-					property);
-			Object repeatedValue = PropertyUtils.getSimpleProperty(bean,
-					repeatedProperty);
-			
-			if (repeatedValue == null) {
-				return true;
-
-			}
-
-			boolean valid = repeatedValue.equals(value);
-			if (valid) {
-				return true;
-
-			} else {
+			if (violationOnProperty) {
 				context.disableDefaultConstraintViolation();
-				context.buildConstraintViolationWithTemplate(
-						context.getDefaultConstraintMessageTemplate())
-						.addPropertyNode(repeatedProperty)
-						.addConstraintViolation();
-				return false;
-
+				
 			}
+			
+			boolean valid = true;
+			Object original = PropertyUtils.getSimpleProperty(bean, properties[0]);
+			
+			for (String property : properties) {
+				Object copy = PropertyUtils.getSimpleProperty(bean, property);
+				if (copy == null) {
+					continue;
+					
+				}
+				if (! copy.equals(original)) {
+					valid = false;
+					if (violationOnProperty) {
+						context.buildConstraintViolationWithTemplate(context.getDefaultConstraintMessageTemplate())
+								.addPropertyNode(property)
+								.addConstraintViolation();
+						
+					}
+				}
+			}
+			return valid;
+				
 		} catch (IllegalAccessException | InvocationTargetException
 				| NoSuchMethodException e) {
 			throw new ValidationException(e);

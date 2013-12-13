@@ -20,7 +20,7 @@ public class TestViolation extends AbstractViolationTest {
 	
 	static final private String originalValue = "originalValue";
 
-	@SameProperties(original="original", copy="property")
+	@SameProperties({"original", "property"})
 	public static class Bean extends AbstractBean<String> {
 		
 		private String original = originalValue;
@@ -42,7 +42,7 @@ public class TestViolation extends AbstractViolationTest {
 	
 	@Parameters
 	static public List<Object[]> beans() {
-		Violation[] violations = new Violation[]{new Violation(SameProperties.class, "The value must be identical to original.")};
+		Violation[] violations = new Violation[]{new Violation(SameProperties.class, "The properties are not equal.")};
 		return Arrays.asList(new Object[][] {
 				{ Bean.class, "xxx", violations },
 				{ Bean.class, "", violations },
