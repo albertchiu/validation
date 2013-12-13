@@ -48,7 +48,7 @@ public @interface SameProperties {
 	/**
 	 * Defines several {@link SameProperties} annotations on the same element.
 	 * 
-	 * @see (@link SameProperties}
+	 * @see SameProperties
 	 */
 	@Target({ TYPE, ANNOTATION_TYPE })
 	@Retention(RUNTIME)

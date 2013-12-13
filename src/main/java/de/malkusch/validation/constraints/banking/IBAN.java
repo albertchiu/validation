@@ -36,7 +36,7 @@ public @interface IBAN {
     /**
 	 * Defines several {@link IBAN} annotations on the same element.
 	 * 
-	 * @see (@link IBAN}
+	 * @see IBAN
 	 */
     @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
 	@Retention(RUNTIME)

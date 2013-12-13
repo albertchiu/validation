@@ -40,7 +40,7 @@ public @interface NotEmptyUpload {
     /**
 	 * Defines several {@link NotEmptyUpload} annotations on the same element.
 	 * 
-	 * @see (@link NotEmptyUpload}
+	 * @see NotEmptyUpload
 	 */
     @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
 	@Retention(RUNTIME)

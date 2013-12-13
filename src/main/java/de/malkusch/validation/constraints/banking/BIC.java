@@ -36,7 +36,7 @@ public @interface BIC {
     /**
 	 * Defines several {@link BIC} annotations on the same element.
 	 * 
-	 * @see (@link BIC}
+	 * @see BIC
 	 */
     @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
 	@Retention(RUNTIME)

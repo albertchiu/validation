@@ -37,7 +37,7 @@ public @interface Adult {
     /**
 	 * Defines several {@link Adult} annotations on the same element.
 	 * 
-	 * @see (@link Adult}
+	 * @see Adult
 	 */
     @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
 	@Retention(RUNTIME)

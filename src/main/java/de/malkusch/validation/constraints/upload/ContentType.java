@@ -47,7 +47,7 @@ public @interface ContentType {
     /**
 	 * Defines several {@link ContentType} annotations on the same element.
 	 * 
-	 * @see (@link ContentType}
+	 * @see ContentType
 	 */
     @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
 	@Retention(RUNTIME)

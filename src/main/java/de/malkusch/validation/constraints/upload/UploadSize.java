@@ -55,7 +55,7 @@ public @interface UploadSize {
 	/**
 	 * Defines several {@link UploadSize} annotations on the same element.
 	 * 
-	 * @see (@link UploadSize}
+	 * @see UploadSize
 	 */
 	@Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
 	@Retention(RUNTIME)

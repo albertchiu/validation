@@ -42,7 +42,7 @@ public @interface Country {
     /**
 	 * Defines several {@link Country} annotations on the same element.
 	 * 
-	 * @see (@link Country}
+	 * @see Country
 	 */
 	@Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
 	@Retention(RUNTIME)

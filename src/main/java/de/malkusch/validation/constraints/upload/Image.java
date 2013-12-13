@@ -42,7 +42,7 @@ public @interface Image {
     /**
 	 * Defines several {@link Image} annotations on the same element.
 	 * 
-	 * @see (@link Image}
+	 * @see Image
 	 */
     @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
 	@Retention(RUNTIME)

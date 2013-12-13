@@ -52,7 +52,7 @@ public @interface Age {
     /**
 	 * Defines several {@link Age} annotations on the same element.
 	 * 
-	 * @see (@link Age}
+	 * @see Age
 	 */
 	@Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER  })
 	@Retention(RUNTIME)
