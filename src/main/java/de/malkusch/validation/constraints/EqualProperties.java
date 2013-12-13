@@ -12,7 +12,7 @@ import javax.validation.Constraint;
 import javax.validation.ConstraintViolation;
 import javax.validation.Payload;
 
-import de.malkusch.validation.validator.internal.SamePropertiesValidator;
+import de.malkusch.validation.validator.internal.EqualPropertiesValidator;
 
 /**
  * The bean has properties with equal values.
@@ -27,11 +27,11 @@ import de.malkusch.validation.validator.internal.SamePropertiesValidator;
  */
 @Target({ TYPE, ANNOTATION_TYPE })
 @Retention(RUNTIME)
-@Constraint(validatedBy = SamePropertiesValidator.class)
+@Constraint(validatedBy = EqualPropertiesValidator.class)
 @Documented
-public @interface SameProperties {
+public @interface EqualProperties {
 
-	String message() default "{de.malkusch.validation.constraints.SameProperties.message}";
+	String message() default "{de.malkusch.validation.constraints.EqualProperties.message}";
 
 	Class<?>[] groups() default {};
 
@@ -48,15 +48,15 @@ public @interface SameProperties {
 	boolean violationOnPropery() default false;
 
 	/**
-	 * Defines several {@link SameProperties} annotations on the same element.
+	 * Defines several {@link EqualProperties} annotations on the same element.
 	 * 
-	 * @see SameProperties
+	 * @see EqualProperties
 	 */
 	@Target({ TYPE, ANNOTATION_TYPE })
 	@Retention(RUNTIME)
 	@Documented
 	@interface List {
-		SameProperties[] value();
+		EqualProperties[] value();
 	}
 
 }

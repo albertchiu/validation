@@ -1,4 +1,4 @@
-package de.malkusch.validation.test.cases.sameProperties;
+package de.malkusch.validation.test.cases.equalProperties;
 
 import java.util.Arrays;
 import java.util.List;
@@ -8,7 +8,7 @@ import javax.validation.ConstraintViolation;
 import org.junit.Assert;
 import org.junit.runners.Parameterized.Parameters;
 
-import de.malkusch.validation.constraints.SameProperties;
+import de.malkusch.validation.constraints.EqualProperties;
 import de.malkusch.validation.test.cases.AbstractViolationTest;
 import de.malkusch.validation.test.model.AbstractBean;
 import de.malkusch.validation.test.model.Violation;
@@ -20,7 +20,7 @@ public class TestViolation extends AbstractViolationTest {
 	
 	static final private String originalValue = "originalValue";
 
-	@SameProperties({"original", "property"})
+	@EqualProperties({"original", "property"})
 	public static class Bean extends AbstractBean<String> {
 		
 		private String original = originalValue;
@@ -42,7 +42,7 @@ public class TestViolation extends AbstractViolationTest {
 	
 	@Parameters
 	static public List<Object[]> beans() {
-		Violation[] violations = new Violation[]{new Violation(SameProperties.class, "The properties are not equal.")};
+		Violation[] violations = new Violation[]{new Violation(EqualProperties.class, "The properties are not equal.")};
 		return Arrays.asList(new Object[][] {
 				{ Bean.class, "xxx", violations },
 				{ Bean.class, "", violations },

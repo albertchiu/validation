@@ -1,11 +1,11 @@
-package de.malkusch.validation.test.cases.sameProperties;
+package de.malkusch.validation.test.cases.equalProperties;
 
 import java.util.Arrays;
 import java.util.List;
 
 import org.junit.runners.Parameterized.Parameters;
 
-import de.malkusch.validation.constraints.SameProperties;
+import de.malkusch.validation.constraints.EqualProperties;
 import de.malkusch.validation.test.cases.AbstractValidTest;
 import de.malkusch.validation.test.model.AbstractBean;
 
@@ -16,7 +16,7 @@ public class TestValid extends AbstractValidTest {
 	
 	static final private String originalValue = "originalValue";
 
-	@SameProperties({"original", "property"})
+	@EqualProperties({"original", "property"})
 	public static class Bean extends AbstractBean<String> {
 		
 		private String original = originalValue;

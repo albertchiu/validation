@@ -8,17 +8,17 @@ import javax.validation.ValidationException;
 
 import org.apache.commons.beanutils.PropertyUtils;
 
-import de.malkusch.validation.constraints.SameProperties;
+import de.malkusch.validation.constraints.EqualProperties;
 
-public class SamePropertiesValidator implements
-		ConstraintValidator<SameProperties, Object> {
+public class EqualPropertiesValidator implements
+		ConstraintValidator<EqualProperties, Object> {
 
 	private String[] properties;
 	
 	private boolean violationOnProperty;
 
 	@Override
-	public void initialize(SameProperties constraint) {
+	public void initialize(EqualProperties constraint) {
 		properties = constraint.value();
 		if (properties == null || properties.length < 2) {
 			throw new ValidationException("You have to define at least 2 properties");
