@@ -14,7 +14,7 @@ import javax.validation.Payload;
 import de.malkusch.validation.validator.internal.SamePropertiesValidator;
 
 /**
- * The bean has two properties with same values.
+ * The bean has two properties with equal values.
  * 
  * This constraint decorates a bean at class level. But if the property
  * {@link #copy()} is different to {@link #original()} a ConstraintViolation
@@ -35,12 +35,12 @@ public @interface SameProperties {
     Class<? extends Payload>[] payload() default {};
     
     /**
-	 * @return property name which has to be repeated by {@link #copy()}
+	 * @return property name
 	 */
     String original();
     
     /**
-	 * @return property name which repeats by {@link #original()}
+	 * @return property name
 	 */
     String copy();
 	

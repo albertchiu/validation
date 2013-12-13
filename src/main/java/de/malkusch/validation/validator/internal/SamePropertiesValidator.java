@@ -6,7 +6,7 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import javax.validation.ValidationException;
 
-import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.beanutils.PropertyUtils;
 
 import de.malkusch.validation.constraints.SameProperties;
 
@@ -32,9 +32,9 @@ public class SamePropertiesValidator implements
 
 			}
 			
-			String value = BeanUtils.getProperty(bean,
+			Object value = PropertyUtils.getSimpleProperty(bean,
 					property);
-			String repeatedValue = BeanUtils.getProperty(bean,
+			Object repeatedValue = PropertyUtils.getSimpleProperty(bean,
 					repeatedProperty);
 			
 			if (repeatedValue == null) {
