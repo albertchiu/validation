@@ -1,7 +1,8 @@
 package de.malkusch.validation.test.cases.age;
 
+import java.util.Arrays;
 import java.util.Date;
-import java.util.LinkedList;
+import java.util.List;
 
 import javax.validation.constraints.Past;
 
@@ -15,52 +16,59 @@ import org.junit.runners.Parameterized.Parameters;
 import de.malkusch.validation.constraints.age.Age;
 import de.malkusch.validation.test.cases.AbstractViolationTest;
 import de.malkusch.validation.test.model.Violation;
-import de.malkusch.validation.test.model.bean.AgeBean;
+import de.malkusch.validation.test.model.bean.AbstractBean;
 
 /**
  * @author Markus Malkusch <markus@malkusch.de>
  */
 public class TestViolation extends AbstractViolationTest {
 	
-	public TestViolation(Object bean, Object value, Violation... violations) {
-		super(bean, value, violations);
+	public static class PartialBean extends AbstractBean<ReadablePartial> {
+
+		@Override
+		@Age(20)
+		public ReadablePartial getProperty() {
+			return super.getProperty();
+		}
+
+	}
+	
+	public static class InstantBean extends AbstractBean<ReadableInstant> {
+		
+		@Override
+		@Age(20)
+		public ReadableInstant getProperty() {
+			return super.getProperty();
+		}
+		
+	}
+	
+	public static class DateBean extends AbstractBean<Date> {
+		
+		@Override
+		@Age(20)
+		public Date getProperty() {
+			return super.getProperty();
+		}
+		
 	}
 
+	public <T>TestViolation(Class<AbstractBean<T>> beanType, T property,
+			Violation[] violations) {
+		super(beanType, property, violations);
+	}
+	
 	@Parameters
-	static public Iterable<Object[]> beans() {
-		LinkedList<Object[]> cases = new LinkedList<>();
+	static public List<Object[]> beans() {
 		Violation violation = new Violation(Age.class, "The Age must be at least 20 years.");
-		{
-			AgeBean bean = new AgeBean();
-			ReadablePartial value = LocalDate.now().minus(Days.ONE);
-			bean.setPartial(value);
-			cases.add(new Object[] {bean, value, new Violation[] { violation }});
-		}
-		{
-			AgeBean bean = new AgeBean();
-			ReadableInstant value = DateTime.now().minus(Days.ONE);
-			bean.setInstant(value);
-			cases.add(new Object[] {bean, value, new Violation[] { violation }});
-		}
-		{
-			AgeBean bean = new AgeBean();
-			Date value = LocalDate.now().minus(Days.ONE).toDate();
-			bean.setDate(value);
-			cases.add(new Object[] {bean, value, new Violation[] { violation }});
-		}
-		{
-			AgeBean bean = new AgeBean();
-			LocalDate value = new LocalDate().plusYears(5);
-			bean.setPartial(value);
-			cases.add(new Object[] {
-					bean,
-					value,
-					new Violation[] {
-						violation,
-						new Violation(Past.class, "must be in the past")
-					}});
-		}
-		return cases;
+		Violation[] violations = new Violation[]{ violation };
+		Violation[] pastViolations = new Violation[]{ violation, new Violation(Past.class, "must be in the past") };
+		return Arrays.asList(new Object[][] {
+				{ PartialBean.class, LocalDate.now().minus(Days.ONE), violations },
+				{ InstantBean.class, DateTime.now().minus(Days.ONE), violations },
+				{ DateBean.class,    DateTime.now().minus(Days.ONE).toDate(), violations },
+				{ PartialBean.class, LocalDate.now().plusYears(5), pastViolations },
+		});
 	}
 
 }

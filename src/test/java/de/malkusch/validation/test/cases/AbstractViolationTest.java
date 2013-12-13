@@ -15,6 +15,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
 import de.malkusch.validation.test.model.Violation;
+import de.malkusch.validation.test.model.bean.AbstractBean;
 
 /**
  * @author Markus Malkusch <markus@malkusch.de>
@@ -22,32 +23,40 @@ import de.malkusch.validation.test.model.Violation;
 @RunWith(Parameterized.class)
 abstract public class AbstractViolationTest {
 	
-	private Object value;
+	private Object property;
 	
 	private Violation[] violations;
 	
-	private Object bean;
-	
-	public AbstractViolationTest(Object bean, Object value, Violation... violations) {
-		this.bean = bean;
-		this.value = value;
-		this.violations = violations;
+	private AbstractBean<?> bean;
+
+	public <T>AbstractViolationTest(Class<AbstractBean<T>> beanType, T property, Violation... violations) {
+		try {
+			AbstractBean<T> bean = beanType.newInstance();
+			bean.setProperty(property);
+			
+			this.bean = bean;
+			this.violations = violations;
+			this.property = property;
+			
+		} catch (InstantiationException | IllegalAccessException e) {
+			Assert.fail(e.getMessage());
+		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testViolation() {
 		Locale.setDefault(Locale.ENGLISH);
 		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 		
-		Set<ConstraintViolation<Object>> constraintViolations = factory.getValidator()
-				.validate(bean);
+		Set<?> constraintViolations = factory.getValidator().validate(bean);
 
 		Assert.assertEquals(constraintViolations.size(), constraintViolations.size());
 		
 		Set<Violation> actualViolations = new HashSet<>();
 		
-		for (ConstraintViolation<Object> violation : constraintViolations) {
-			Assert.assertEquals(value, violation.getInvalidValue());
+		for (ConstraintViolation<Object> violation : (Set<ConstraintViolation<Object>>) constraintViolations) {
+			Assert.assertEquals(property, violation.getInvalidValue());
 			Assert.assertEquals(
 					String.format("{%s.message}", violation.getConstraintDescriptor().getAnnotation().annotationType().getName()),
 					violation.getMessageTemplate());
