@@ -10,11 +10,11 @@ import javax.validation.ConstraintValidatorContext;
 import org.apache.commons.validator.routines.DomainValidator;
 
 import de.malkusch.validation.constraints.net.TLD;
-import de.malkusch.validation.constraints.net.TLD.Type;
+import de.malkusch.validation.constraints.net.TLD.TLDType;
 
 public class TLDValidatorForString implements ConstraintValidator<TLD, String> {
 	
-	private Set<Type> types;
+	private Set<TLDType> types;
 
 	@Override
 	public void initialize(TLD constraint) {
@@ -27,25 +27,25 @@ public class TLDValidatorForString implements ConstraintValidator<TLD, String> {
 			return true;
 			
 		}
-		if (types.contains(Type.COUNTRY)) {
+		if (types.contains(TLDType.COUNTRY)) {
 			if (DomainValidator.getInstance().isValidCountryCodeTld(tld)) {
 				return true;
 				
 			}
 		}
-		if (types.contains(Type.GENERIC)) {
+		if (types.contains(TLDType.GENERIC)) {
 			if (DomainValidator.getInstance().isValidGenericTld(tld)) {
 				return true;
 				
 			}
 		}
-		if (types.contains(Type.INFRASTRUCTURE)) {
+		if (types.contains(TLDType.INFRASTRUCTURE)) {
 			if (DomainValidator.getInstance().isValidInfrastructureTld(tld)) {
 				return true;
 				
 			}
 		}
-		if (types.contains(Type.LOCAL)) {
+		if (types.contains(TLDType.LOCAL)) {
 			if (DomainValidator.getInstance().isValidLocalTld(tld)) {
 				return true;
 				

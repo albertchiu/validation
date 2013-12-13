@@ -6,7 +6,7 @@ import java.util.List;
 import org.junit.runners.Parameterized.Parameters;
 
 import de.malkusch.validation.constraints.net.TLD;
-import de.malkusch.validation.constraints.net.TLD.Type;
+import de.malkusch.validation.constraints.net.TLD.TLDType;
 import de.malkusch.validation.test.cases.AbstractValidTest;
 import de.malkusch.validation.test.model.AbstractBean;
 
@@ -18,7 +18,7 @@ public class TestValid extends AbstractValidTest {
 	public static class InfrastructureBean extends AbstractBean<String> {
 		
 		@Override
-		@TLD(Type.INFRASTRUCTURE)
+		@TLD(TLDType.INFRASTRUCTURE)
 		public String getProperty() {
 			return super.getProperty();
 		}
@@ -28,7 +28,7 @@ public class TestValid extends AbstractValidTest {
 	public static class GenericBean extends AbstractBean<String> {
 		
 		@Override
-		@TLD(Type.GENERIC)
+		@TLD(TLDType.GENERIC)
 		public String getProperty() {
 			return super.getProperty();
 		}
@@ -38,7 +38,7 @@ public class TestValid extends AbstractValidTest {
 	public static class CountryBean extends AbstractBean<String> {
 		
 		@Override
-		@TLD(Type.COUNTRY)
+		@TLD(TLDType.COUNTRY)
 		public String getProperty() {
 			return super.getProperty();
 		}
@@ -48,7 +48,7 @@ public class TestValid extends AbstractValidTest {
 	public static class LocalBean extends AbstractBean<String> {
 		
 		@Override
-		@TLD(Type.LOCAL)
+		@TLD(TLDType.LOCAL)
 		public String getProperty() {
 			return super.getProperty();
 		}

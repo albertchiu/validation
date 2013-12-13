@@ -14,49 +14,34 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-import de.malkusch.validation.validator.internal.net.TLDValidatorForString;
+import de.malkusch.validation.validator.internal.net.DomainValidatorForString;
 
 /**
- * The String is a Top Level Domain.
+ * The String has to be a Domain.
  * 
  * @author Markus Malkusch <markus@malkusch.de>
  */
-@Constraint(validatedBy={ TLDValidatorForString.class })
+@Constraint(validatedBy={DomainValidatorForString.class})
 @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
 @Retention(RUNTIME)
 @Documented
-public @interface TLD {
+public @interface Domain {
 
-	static public enum TLDType {
-		INFRASTRUCTURE,
-		LOCAL,
-		GENERIC,
-		COUNTRY
-	}
+	String message() default "{de.malkusch.validation.constraints.net.Domain.message}";
 	
-	String message() default "{de.malkusch.validation.constraints.net.TLD.message}";
-	
-	/**
-	 * @return List of valid TLD types. Default is all except {@link TLDType#LOCAL}
-	 */
-	TLDType[] value() default {
-		TLDType.INFRASTRUCTURE,
-		TLDType.GENERIC,
-		TLDType.COUNTRY };
-
     Class<?>[] groups() default {};
 
     Class<? extends Payload>[] payload() default {};
 	
     /**
-	 * Defines several {@link TLD} annotations on the same element.
+	 * Defines several {@link Domain} annotations on the same element.
 	 * 
-	 * @see TLD
+	 * @see Domain
 	 */
 	@Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
 	@Retention(RUNTIME)
 	@Documented
 	@interface List {
-		TLD[] value();
+		Domain[] value();
 	}
 }
