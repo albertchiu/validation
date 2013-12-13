@@ -37,4 +37,15 @@ public @interface Country {
 
     Class<? extends Payload>[] payload() default {};
 	
+    /**
+	 * Defines several {@link Country} annotations on the same element.
+	 * 
+	 * @see (@link Country}
+	 */
+	@Target({ METHOD, FIELD, ANNOTATION_TYPE })
+	@Retention(RUNTIME)
+	@Documented
+	@interface List {
+		Country[] value();
+	}
 }

@@ -49,5 +49,17 @@ public @interface UploadSize {
 	 * @return size the file size in bytes must be lower or equal to
 	 */
 	long max() default Long.MAX_VALUE;
+	
+	/**
+	 * Defines several {@link UploadSize} annotations on the same element.
+	 * 
+	 * @see (@link UploadSize}
+	 */
+	@Target({ METHOD, FIELD, ANNOTATION_TYPE })
+	@Retention(RUNTIME)
+	@Documented
+	@interface List {
+		UploadSize[] value();
+	}
     
 }

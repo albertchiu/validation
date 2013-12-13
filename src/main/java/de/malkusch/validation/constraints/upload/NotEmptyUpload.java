@@ -34,5 +34,17 @@ public @interface NotEmptyUpload {
     Class<?>[] groups() default {};
 
     Class<? extends Payload>[] payload() default {};
+    
+    /**
+	 * Defines several {@link NotEmptyUpload} annotations on the same element.
+	 * 
+	 * @see (@link NotEmptyUpload}
+	 */
+	@Target({ METHOD, FIELD, ANNOTATION_TYPE })
+	@Retention(RUNTIME)
+	@Documented
+	@interface List {
+		NotEmptyUpload[] value();
+	}
 	
 }

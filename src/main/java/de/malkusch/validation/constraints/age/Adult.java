@@ -32,4 +32,15 @@ public @interface Adult {
 
     Class<? extends Payload>[] payload() default {};
 	
+    /**
+	 * Defines several {@link Adult} annotations on the same element.
+	 * 
+	 * @see (@link Adult}
+	 */
+	@Target({ METHOD, FIELD, ANNOTATION_TYPE })
+	@Retention(RUNTIME)
+	@Documented
+	@interface List {
+		Adult[] value();
+	}
 }

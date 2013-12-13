@@ -42,4 +42,16 @@ public @interface ContentType {
 	 */
     String value();
     
+    /**
+	 * Defines several {@link ContentType} annotations on the same element.
+	 * 
+	 * @see (@link ContentType}
+	 */
+	@Target({ METHOD, FIELD, ANNOTATION_TYPE })
+	@Retention(RUNTIME)
+	@Documented
+	@interface List {
+		ContentType[] value();
+	}
+    
 }

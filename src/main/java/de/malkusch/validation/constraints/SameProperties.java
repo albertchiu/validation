@@ -22,7 +22,7 @@ import de.malkusch.validation.validator.internal.SamePropertiesValidator;
  * 
  * @author Markus Malkusch <markus@malkusch.de>
  */
-@Target( { TYPE, ANNOTATION_TYPE })
+@Target({ TYPE, ANNOTATION_TYPE })
 @Retention(RUNTIME)
 @Constraint(validatedBy = SamePropertiesValidator.class)
 @Documented
@@ -30,18 +30,30 @@ public @interface SameProperties {
 
 	String message() default "{de.malkusch.validation.constraints.SameProperties.message}";
 
-    Class<?>[] groups() default {};
+	Class<?>[] groups() default {};
 
-    Class<? extends Payload>[] payload() default {};
-    
-    /**
+	Class<? extends Payload>[] payload() default {};
+
+	/**
 	 * @return property name
 	 */
-    String original();
-    
-    /**
+	String original();
+
+	/**
 	 * @return property name
 	 */
-    String copy();
-	
+	String copy();
+
+	/**
+	 * Defines several {@link SameProperties} annotations on the same element.
+	 * 
+	 * @see (@link SameProperties}
+	 */
+	@Target({ TYPE, ANNOTATION_TYPE })
+	@Retention(RUNTIME)
+	@Documented
+	@interface List {
+		SameProperties[] value();
+	}
+
 }

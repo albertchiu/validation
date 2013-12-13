@@ -36,5 +36,17 @@ public @interface Image {
     Class<?>[] groups() default {};
 
     Class<? extends Payload>[] payload() default {};
+    
+    /**
+	 * Defines several {@link Image} annotations on the same element.
+	 * 
+	 * @see (@link Image}
+	 */
+	@Target({ METHOD, FIELD, ANNOTATION_TYPE })
+	@Retention(RUNTIME)
+	@Documented
+	@interface List {
+		Image[] value();
+	}
 	
 }

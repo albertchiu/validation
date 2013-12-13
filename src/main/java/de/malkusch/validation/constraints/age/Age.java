@@ -1,8 +1,10 @@
 package de.malkusch.validation.constraints.age;
 
 import static java.lang.annotation.ElementType.ANNOTATION_TYPE;
+import static java.lang.annotation.ElementType.CONSTRUCTOR;
 import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.ElementType.METHOD;
+import static java.lang.annotation.ElementType.PARAMETER;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 import java.lang.annotation.Documented;
@@ -31,7 +33,7 @@ import de.malkusch.validation.validator.internal.age.AgeValidatorForReadablePart
  * @author Markus Malkusch <markus@malkusch.de>
  */
 @Past
-@Target( { METHOD, FIELD, ANNOTATION_TYPE })
+@Target( { METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
 @Retention(RUNTIME)
 @Constraint(validatedBy = { 
 		AgeValidatorForReadablePartial.class, AgeValidatorForReadableInstant.class,
@@ -46,5 +48,17 @@ public @interface Age {
     Class<? extends Payload>[] payload() default {};
 	
     int value();
+    
+    /**
+	 * Defines several {@link Age} annotations on the same element.
+	 * 
+	 * @see (@link Age}
+	 */
+	@Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER  })
+	@Retention(RUNTIME)
+	@Documented
+	@interface List {
+		Age[] value();
+	}
     
 }

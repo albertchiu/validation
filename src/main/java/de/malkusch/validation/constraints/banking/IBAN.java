@@ -30,5 +30,17 @@ public @interface IBAN {
     Class<?>[] groups() default {};
 
     Class<? extends Payload>[] payload() default {};
+    
+    /**
+	 * Defines several {@link IBAN} annotations on the same element.
+	 * 
+	 * @see (@link IBAN}
+	 */
+	@Target({ METHOD, FIELD, ANNOTATION_TYPE })
+	@Retention(RUNTIME)
+	@Documented
+	@interface List {
+		IBAN[] value();
+	}
 	
 }
