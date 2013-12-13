@@ -27,7 +27,7 @@ public class TestViolation extends AbstractViolationTest {
 		Violation violation = new Violation(Age.class, "The Age must be at least 18 years.");
 		{
 			AdultBean bean = new AdultBean();
-			LocalDate value = new LocalDate();
+			LocalDate value = new LocalDate().minus(Days.ONE);;
 			bean.setBirth(value);
 			cases.add(new Object[] {bean, value, violation});
 		}
