@@ -12,7 +12,7 @@ import org.junit.runners.Parameterized.Parameters;
 
 import de.malkusch.validation.constraints.age.Age;
 import de.malkusch.validation.test.cases.AbstractValidTest;
-import de.malkusch.validation.test.model.bean.AbstractBean;
+import de.malkusch.validation.test.model.AbstractBean;
 
 /**
  * @author Markus Malkusch <markus@malkusch.de>

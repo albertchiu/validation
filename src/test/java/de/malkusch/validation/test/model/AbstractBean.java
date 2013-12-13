@@ -1,4 +1,4 @@
-package de.malkusch.validation.test.model.bean;
+package de.malkusch.validation.test.model;
 
 public class AbstractBean<T> {
 

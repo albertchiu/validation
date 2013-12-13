@@ -7,8 +7,8 @@ import org.junit.runners.Parameterized.Parameters;
 
 import de.malkusch.validation.constraints.banking.IBAN;
 import de.malkusch.validation.test.cases.AbstractViolationTest;
+import de.malkusch.validation.test.model.AbstractBean;
 import de.malkusch.validation.test.model.Violation;
-import de.malkusch.validation.test.model.bean.AbstractBean;
 
 /**
  * @author Markus Malkusch <markus@malkusch.de>

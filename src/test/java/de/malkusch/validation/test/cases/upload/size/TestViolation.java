@@ -10,8 +10,8 @@ import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.web.multipart.MultipartFile;
 
 import de.malkusch.validation.test.cases.AbstractViolationTest;
+import de.malkusch.validation.test.model.AbstractBean;
 import de.malkusch.validation.test.model.Violation;
-import de.malkusch.validation.test.model.bean.AbstractBean;
 
 /**
  * @author Markus Malkusch <markus@malkusch.de>

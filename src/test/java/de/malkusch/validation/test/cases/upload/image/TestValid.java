@@ -14,7 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import de.malkusch.validation.constraints.upload.Image;
 import de.malkusch.validation.test.cases.AbstractValidTest;
-import de.malkusch.validation.test.model.bean.AbstractBean;
+import de.malkusch.validation.test.model.AbstractBean;
 
 /**
  * @author Markus Malkusch <markus@malkusch.de>

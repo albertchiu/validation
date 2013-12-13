@@ -10,7 +10,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-import de.malkusch.validation.test.model.bean.AbstractBean;
+import de.malkusch.validation.test.model.AbstractBean;
 
 /**
  * @author Markus Malkusch <markus@malkusch.de>
