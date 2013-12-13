@@ -9,17 +9,15 @@ import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
-import javax.imageio.ImageIO;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import de.malkusch.validation.validator.upload.ImageValidator;
+import de.malkusch.validation.validator.upload.NotEmptyUploadValidator;
 
 /**
- * The MultipartFile must be an image.
- * I.e. the file is readable by {@link ImageIO}
+ * The MultipartFile must not be empty.
  * 
  * This constraint works only on Spring's {@link MultipartFile}.
  * 
@@ -27,11 +25,11 @@ import de.malkusch.validation.validator.upload.ImageValidator;
  */
 @Target( { METHOD, FIELD, ANNOTATION_TYPE })
 @Retention(RUNTIME)
-@Constraint(validatedBy = ImageValidator.class)
+@Constraint(validatedBy = NotEmptyUploadValidator.class)
 @Documented
-public @interface Image {
+public @interface NotEmptyUpload {
 
-	String message() default "{de.malkusch.validation.constraints.upload.Image.message}";
+	String message() default "{de.malkusch.validation.constraints.upload.NotEmptyUpload.message}";
 
     Class<?>[] groups() default {};
 
