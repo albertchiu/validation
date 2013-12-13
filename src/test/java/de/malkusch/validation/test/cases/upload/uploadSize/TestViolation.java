@@ -14,6 +14,7 @@ import de.malkusch.validation.test.model.bean.upload.UploadSizeBean;
 /**
  * @author Markus Malkusch <markus@malkusch.de>
  */
+@Deprecated
 public class TestViolation extends AbstractViolationTest {
 	
 	public TestViolation(Object bean, Object value, Violation violation) {

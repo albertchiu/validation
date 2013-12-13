@@ -12,6 +12,7 @@ import de.malkusch.validation.test.model.bean.upload.UploadSizeBean;
 /**
  * @author Markus Malkusch <markus@malkusch.de>
  */
+@Deprecated
 public class TestValid extends AbstractValidTest {
 
 	public TestValid(Object bean) {
