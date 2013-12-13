@@ -16,7 +16,9 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 /**
- * The String has to be a well formed ISO-3166-1 aplha-2 country code.
+ * The String has to be a well formed ISO-3166-1 alpha-2 country code.
+ * 
+ * Those codes are upper case.
  * 
  * @author Markus Malkusch <markus@malkusch.de>
  */
