@@ -20,6 +20,11 @@ public class TestViolation extends AbstractViolationTest {
 	
 	static final private String originalValue = "originalValue";
 
+	@EqualProperties({"original", "original", "property"})
+	public static class ThreePropertiesBean extends Bean {
+		
+	}
+	
 	@EqualProperties({"original", "property"})
 	public static class Bean extends AbstractBean<String> {
 		
@@ -46,6 +51,8 @@ public class TestViolation extends AbstractViolationTest {
 		return Arrays.asList(new Object[][] {
 				{ Bean.class, "xxx", violations },
 				{ Bean.class, "", violations },
+				{ ThreePropertiesBean.class, "xxx", violations },
+				{ ThreePropertiesBean.class, "", violations },
 		});
 	}
 	
