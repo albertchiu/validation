@@ -1,11 +1,11 @@
-package de.malkusch.validation.test.cases.bic;
+package de.malkusch.validation.test.cases.banking.bic;
 
 import java.util.LinkedList;
 
 import org.junit.runners.Parameterized.Parameters;
 
 import de.malkusch.validation.test.cases.AbstractValidTest;
-import de.malkusch.validation.test.model.bean.BICModel;
+import de.malkusch.validation.test.model.bean.banking.BICModel;
 
 /**
  * @author Markus Malkusch <markus@malkusch.de>

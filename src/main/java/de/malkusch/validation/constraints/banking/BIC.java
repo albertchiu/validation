@@ -1,4 +1,4 @@
-package de.malkusch.validation.constraints;
+package de.malkusch.validation.constraints.banking;
 
 import static java.lang.annotation.ElementType.ANNOTATION_TYPE;
 import static java.lang.annotation.ElementType.FIELD;
@@ -25,7 +25,7 @@ import de.malkusch.validation.validator.BICValidator;
 @Documented
 public @interface BIC {
 
-	String message() default "{de.malkusch.validation.constraints.BIC.message}";
+	String message() default "{de.malkusch.validation.constraints.banking.BIC.message}";
 
     Class<?>[] groups() default {};
 

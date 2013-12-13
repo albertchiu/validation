@@ -1,6 +1,6 @@
-package de.malkusch.validation.test.model.bean;
+package de.malkusch.validation.test.model.bean.banking;
 
-import de.malkusch.validation.constraints.IBAN;
+import de.malkusch.validation.constraints.banking.IBAN;
 
 /**
  * @author Markus Malkusch <markus@malkusch.de>

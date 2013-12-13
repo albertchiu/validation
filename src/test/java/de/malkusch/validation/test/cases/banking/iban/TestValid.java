@@ -1,11 +1,11 @@
-package de.malkusch.validation.test.cases.iban;
+package de.malkusch.validation.test.cases.banking.iban;
 
 import java.util.LinkedList;
 
 import org.junit.runners.Parameterized.Parameters;
 
 import de.malkusch.validation.test.cases.AbstractValidTest;
-import de.malkusch.validation.test.model.bean.IBANModel;
+import de.malkusch.validation.test.model.bean.banking.IBANModel;
 
 /**
  * @author Markus Malkusch <markus@malkusch.de>

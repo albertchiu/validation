@@ -3,7 +3,7 @@ package de.malkusch.validation.validator;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import de.malkusch.validation.constraints.IBAN;
+import de.malkusch.validation.constraints.banking.IBAN;
 import fr.marcwrobel.jbanking.iban.Iban;
 
 public class IBANValidator implements ConstraintValidator<IBAN, String> {

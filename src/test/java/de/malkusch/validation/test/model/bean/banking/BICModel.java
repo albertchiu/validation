@@ -1,6 +1,6 @@
-package de.malkusch.validation.test.model.bean;
+package de.malkusch.validation.test.model.bean.banking;
 
-import de.malkusch.validation.constraints.BIC;
+import de.malkusch.validation.constraints.banking.BIC;
 
 /**
  * @author Markus Malkusch <markus@malkusch.de>
