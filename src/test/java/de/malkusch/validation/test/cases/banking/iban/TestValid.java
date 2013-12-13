@@ -1,37 +1,39 @@
 package de.malkusch.validation.test.cases.banking.iban;
 
-import java.util.LinkedList;
+import java.util.Arrays;
+import java.util.List;
 
 import org.junit.runners.Parameterized.Parameters;
 
+import de.malkusch.validation.constraints.banking.IBAN;
 import de.malkusch.validation.test.cases.AbstractValidTest;
-import de.malkusch.validation.test.model.bean.banking.IBANModel;
+import de.malkusch.validation.test.model.bean.AbstractBean;
 
 /**
  * @author Markus Malkusch <markus@malkusch.de>
  */
 public class TestValid extends AbstractValidTest {
-
-	public TestValid(Object bean) {
-		super(bean);
+	
+	public static class Bean extends AbstractBean<String> {
+		
+		@Override
+		@IBAN
+		public String getProperty() {
+			return super.getProperty();
+		}
+		
 	}
 	
-	@Parameters
-	static public Iterable<Object[]> beans() {
-		LinkedList<Object[]> cases = new LinkedList<>();
+	public <T>TestValid(Class<AbstractBean<T>> beanType, T property) {
+		super(beanType, property);
+	}
 
-		{
-			IBANModel bean = new IBANModel();
-			cases.add(new Object[] { bean });
-		}
-		
-		{
-			IBANModel bean = new IBANModel();
-			bean.setIban("DE68210501700012345678");
-			cases.add(new Object[] { bean });
-		}
-		
-		return cases;
+	@Parameters
+	static public List<Object[]> beans() {
+		return Arrays.asList(new Object[][] {
+				{ Bean.class, null },
+				{ Bean.class, "DE68210501700012345678" },
+		});
 	}
 
 }

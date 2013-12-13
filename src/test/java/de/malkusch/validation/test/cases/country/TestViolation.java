@@ -42,7 +42,13 @@ public class TestViolation extends AbstractViolationTest {
 		}
 		{
 			CountryBean bean = new CountryBean();
-			String value = "x1";
+			String value = "X1";
+			bean.setCountry(value);
+			cases.add(new Object[] {bean, value, violation});
+		}
+		{
+			CountryBean bean = new CountryBean();
+			String value = "de";
 			bean.setCountry(value);
 			cases.add(new Object[] {bean, value, violation});
 		}

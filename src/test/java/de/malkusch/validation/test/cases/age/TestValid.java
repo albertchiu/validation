@@ -1,48 +1,69 @@
 package de.malkusch.validation.test.cases.age;
 
-import java.util.LinkedList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
 
 import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
+import org.joda.time.ReadableInstant;
+import org.joda.time.ReadablePartial;
 import org.junit.runners.Parameterized.Parameters;
 
+import de.malkusch.validation.constraints.age.Age;
 import de.malkusch.validation.test.cases.AbstractValidTest;
-import de.malkusch.validation.test.model.bean.AgeBean;
+import de.malkusch.validation.test.model.bean.AbstractBean;
 
 /**
  * @author Markus Malkusch <markus@malkusch.de>
  */
 public class TestValid extends AbstractValidTest {
 
-	public TestValid(Object bean) {
-		super(bean);
+	public static class PartialBean extends AbstractBean<ReadablePartial> {
+
+		@Override
+		@Age(20)
+		public ReadablePartial getProperty() {
+			return super.getProperty();
+		}
+
+	}
+	
+	public static class InstantBean extends AbstractBean<ReadableInstant> {
+		
+		@Override
+		@Age(20)
+		public ReadableInstant getProperty() {
+			return super.getProperty();
+		}
+		
+	}
+	
+	public static class DateBean extends AbstractBean<Date> {
+		
+		@Override
+		@Age(20)
+		public Date getProperty() {
+			return super.getProperty();
+		}
+		
+	}
+
+	public <T>TestValid(Class<AbstractBean<T>> beanType, T property) {
+		super(beanType, property);
 	}
 
 	@Parameters
-	static public Iterable<Object[]> beans() {
-		LinkedList<Object[]> cases = new LinkedList<>();
-
-		{
-			AgeBean ageBean = new AgeBean();
-			ageBean.setPartial(LocalDate.parse("1981-5-1"));
-			cases.add(new Object[] { ageBean });
-		}
-		{
-			AgeBean ageBean = new AgeBean();
-			cases.add(new Object[] { ageBean });
-		}
-		{
-			AgeBean ageBean = new AgeBean();
-			ageBean.setInstant(DateTime.parse("1981-5-1"));
-			cases.add(new Object[] { ageBean });
-		}
-		{
-			AgeBean ageBean = new AgeBean();
-			ageBean.setDate(DateTime.parse("1981-5-1").toDate());
-			cases.add(new Object[] { ageBean });
-		}
-
-		return cases;
+	static public List<Object[]> beans() {
+		return Arrays.asList(new Object[][] { 
+				{ PartialBean.class, null },
+				{ InstantBean.class, null },
+				{ DateBean.class, null },
+				{ PartialBean.class, LocalDate.parse("1981-5-1") },
+				{ InstantBean.class, DateTime.parse("1981-5-1") },
+				{ DateBean.class, DateTime.parse("1981-5-1").toDate() }
+		});
 	}
 
 }
+

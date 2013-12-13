@@ -1,32 +1,40 @@
 package de.malkusch.validation.test.cases.upload.notEmpty;
 
-import java.io.IOException;
-import java.util.LinkedList;
+import java.util.Arrays;
+import java.util.List;
 
 import org.junit.runners.Parameterized.Parameters;
 import org.springframework.mock.web.MockMultipartFile;
+import org.springframework.web.multipart.MultipartFile;
 
+import de.malkusch.validation.constraints.upload.NotEmptyUpload;
 import de.malkusch.validation.test.cases.AbstractValidTest;
-import de.malkusch.validation.test.model.bean.upload.NotEmptyBean;
+import de.malkusch.validation.test.model.bean.AbstractBean;
 
 /**
  * @author Markus Malkusch <markus@malkusch.de>
  */
 public class TestValid extends AbstractValidTest {
-
-	public TestValid(Object bean) {
-		super(bean);
+	
+	public static class Bean extends AbstractBean<MultipartFile> {
+		
+		@Override
+		@NotEmptyUpload
+		public MultipartFile getProperty() {
+			return super.getProperty();
+		}
+		
 	}
 	
+	public <T>TestValid(Class<AbstractBean<T>> beanType, T property) {
+		super(beanType, property);
+	}
+
 	@Parameters
-	static public Iterable<Object[]> beans() throws IOException {
-		LinkedList<Object[]> cases = new LinkedList<>();
-		{
-			NotEmptyBean bean = new NotEmptyBean();
-			bean.setFile(new MockMultipartFile("file", new byte[]{1}));
-			cases.add(new Object[] { bean });
-		}
-		return cases;
+	static public List<Object[]> beans() {
+		return Arrays.asList(new Object[][] {
+				{ Bean.class, new MockMultipartFile("file", new byte[]{1}) },
+		});
 	}
 
 }

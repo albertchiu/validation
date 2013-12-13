@@ -2,7 +2,6 @@ package de.malkusch.validation.test.cases;
 
 import java.util.Set;
 
-import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.ValidatorFactory;
 
@@ -11,25 +10,32 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
+import de.malkusch.validation.test.model.bean.AbstractBean;
+
 /**
  * @author Markus Malkusch <markus@malkusch.de>
  */
 @RunWith(Parameterized.class)
 abstract public class AbstractValidTest {
 
-	private Object bean;
+	private AbstractBean<?> bean;
 
-	public AbstractValidTest(Object bean) {
-		this.bean = bean;
+	public <T>AbstractValidTest(Class<AbstractBean<T>> beanType, T property) {
+		try {
+			AbstractBean<T> bean = beanType.newInstance();
+			bean.setProperty(property);
+			
+			this.bean = bean;
+			
+		} catch (InstantiationException | IllegalAccessException e) {
+			Assert.fail(e.getMessage());
+		}
 	}
 
 	@Test
 	public void testValid() {
 		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-		
-		Set<ConstraintViolation<Object>> violations = factory.getValidator()
-				.validate(bean);
-
+		Set<?> violations = factory.getValidator().validate(bean);
 		Assert.assertTrue(violations.isEmpty());
 	}
 

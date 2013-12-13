@@ -13,16 +13,15 @@ import javax.validation.Constraint;
 import javax.validation.Payload;
 import javax.validation.ReportAsSingleViolation;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Pattern.Flag;
 import javax.validation.constraints.Size;
 
 /**
- * The String has to be a well formed ISO country code.
+ * The String has to be a well formed ISO-3166-1 aplha-2 country code.
  * 
  * @author Markus Malkusch <markus@malkusch.de>
  */
 @Size(min=2, max=2)
-@Pattern(regexp="^[a-z]*$", flags=Flag.CASE_INSENSITIVE)
+@Pattern(regexp="^[A-Z]*$")
 @Constraint(validatedBy={})
 @Target( { METHOD, FIELD, ANNOTATION_TYPE })
 @Retention(RUNTIME)
