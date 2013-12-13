@@ -12,12 +12,9 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-import org.joda.time.ReadablePartial;
-
 /**
- * The ReadablePartial must be at least 18 years old.
+ * The Date must be at least 18 years old.
  * 
- * @see ReadablePartial
  * @author Markus Malkusch <markus@malkusch.de>
  */
 @Age(18)

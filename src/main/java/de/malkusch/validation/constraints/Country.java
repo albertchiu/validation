@@ -30,7 +30,7 @@ import javax.validation.constraints.Size;
 @Documented
 public @interface Country {
 
-	String message() default "{de.malkusch.validation.Country.message}";
+	String message() default "{de.malkusch.validation.constraints.Country.message}";
 
     Class<?>[] groups() default {};
 

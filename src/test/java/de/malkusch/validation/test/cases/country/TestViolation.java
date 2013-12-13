@@ -1,6 +1,5 @@
 package de.malkusch.validation.test.cases.country;
 
-import java.lang.annotation.Annotation;
 import java.util.LinkedList;
 
 import org.junit.runners.Parameterized.Parameters;
@@ -8,45 +7,44 @@ import org.junit.runners.Parameterized.Parameters;
 import de.malkusch.validation.constraints.Country;
 import de.malkusch.validation.test.cases.AbstractViolationTest;
 import de.malkusch.validation.test.model.CountryBean;
+import de.malkusch.validation.test.model.Violation;
 
 /**
  * @author Markus Malkusch <markus@malkusch.de>
  */
 public class TestViolation extends AbstractViolationTest {
 	
-	public TestViolation(Class<? extends Annotation> constraint,
-			Object bean, Object value, String message) {
-		super(constraint, bean, value, message);
+	public TestViolation(Object bean, Object value, Violation violation) {
+		super(bean, value, violation);
 	}
 
 	@Parameters
 	static public Iterable<Object[]> beans() {
 		LinkedList<Object[]> cases = new LinkedList<>();
-		Class<? extends Annotation> constraint = Country.class;
-		String message = "The country code is invalid.";
+		Violation violation = new Violation(Country.class, "The country code is invalid.");
 		{
 			CountryBean bean = new CountryBean();
 			String value = "xxx";
 			bean.setCountry(value);
-			cases.add(new Object[] {constraint, bean, value, message});
+			cases.add(new Object[] {bean, value, violation});
 		}
 		{
 			CountryBean bean = new CountryBean();
 			String value = "";
 			bean.setCountry(value);
-			cases.add(new Object[] {constraint, bean, value, message});
+			cases.add(new Object[] {bean, value, violation});
 		}
 		{
 			CountryBean bean = new CountryBean();
 			String value = "x";
 			bean.setCountry(value);
-			cases.add(new Object[] {constraint, bean, value, message});
+			cases.add(new Object[] {bean, value, violation});
 		}
 		{
 			CountryBean bean = new CountryBean();
 			String value = "x1";
 			bean.setCountry(value);
-			cases.add(new Object[] {constraint, bean, value, message});
+			cases.add(new Object[] {bean, value, violation});
 		}
 		return cases;
 	}

@@ -13,20 +13,23 @@ import javax.validation.Constraint;
 import javax.validation.Payload;
 import javax.validation.constraints.Past;
 
+import org.joda.time.ReadableInstant;
 import org.joda.time.ReadablePartial;
 
-import de.malkusch.validation.validator.AgeValidator;
+import de.malkusch.validation.validator.age.ReadableInstantAgeValidator;
+import de.malkusch.validation.validator.age.ReadablePartialAgeValidator;
 
 /**
- * The ReadablePartial must be in the past and at least that years old.
+ * The Date must be in the past and at least that years old.
  * 
  * @see ReadablePartial
+ * @see ReadableInstant
  * @author Markus Malkusch <markus@malkusch.de>
  */
 @Past
 @Target( { METHOD, FIELD, ANNOTATION_TYPE })
 @Retention(RUNTIME)
-@Constraint(validatedBy = AgeValidator.class)
+@Constraint(validatedBy = { ReadablePartialAgeValidator.class, ReadableInstantAgeValidator.class })
 @Documented
 public @interface Age {
 

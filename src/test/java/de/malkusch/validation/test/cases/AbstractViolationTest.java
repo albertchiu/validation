@@ -1,6 +1,7 @@
 package de.malkusch.validation.test.cases;
 
-import java.lang.annotation.Annotation;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
 
@@ -13,6 +14,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
+import de.malkusch.validation.test.model.Violation;
+
 /**
  * @author Markus Malkusch <markus@malkusch.de>
  */
@@ -21,32 +24,42 @@ abstract public class AbstractViolationTest {
 	
 	private Object value;
 	
-	private Class<? extends Annotation> constraint;
+	private Violation[] violations;
 	
 	private Object bean;
 	
-	private String message;
-	
-	public AbstractViolationTest(Class<? extends Annotation> constraint, Object bean, Object value, String message) {
-		this.constraint = constraint;
+	public AbstractViolationTest(Object bean, Object value, Violation... violations) {
 		this.bean = bean;
 		this.value = value;
-		this.message = message;
+		this.violations = violations;
 	}
 	
 	@Test
 	public void testViolation() {
 		Locale.setDefault(Locale.ENGLISH);
 		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-
-		Set<ConstraintViolation<Object>> violations = factory.getValidator()
+		
+		Set<ConstraintViolation<Object>> constraintViolations = factory.getValidator()
 				.validate(bean);
 
-		Assert.assertEquals(1, violations.size());
-		ConstraintViolation<Object> violation = violations.iterator().next();
-		Assert.assertEquals(value, violation.getInvalidValue());
-		Assert.assertEquals(message, violation.getMessage());
-		Assert.assertEquals(constraint, violation.getConstraintDescriptor().getAnnotation().annotationType());
+		Assert.assertEquals(constraintViolations.size(), constraintViolations.size());
+		
+		Set<Violation> actualViolations = new HashSet<>();
+		
+		for (ConstraintViolation<Object> violation : constraintViolations) {
+			Assert.assertEquals(value, violation.getInvalidValue());
+			Assert.assertEquals(
+					String.format("{%s.message}", violation.getConstraintDescriptor().getAnnotation().annotationType().getName()),
+					violation.getMessageTemplate());
+			
+			actualViolations.add(new Violation(
+					violation.getConstraintDescriptor().getAnnotation().annotationType(),
+					violation.getMessage()));
+		}
+		
+		Assert.assertEquals(
+				new HashSet<>(Arrays.asList(violations)),
+				actualViolations);
 	}
 
 }
