@@ -12,6 +12,10 @@
 		<artifactId>oss-parent</artifactId>
 		<version>1.1</version>
 	</parent>
+	
+	<properties>
+		<org.springframework.version>3.2.4.RELEASE</org.springframework.version>
+	</properties>
 
 	<url>https://github.com/malkusch/${project.artifactId}</url>
 	<scm>
@@ -26,11 +30,23 @@
 			<artifactId>validation-api</artifactId>
 			<version>1.1.0.Final</version>
 		</dependency>
-
 		<dependency>
 			<groupId>fr.marcwrobel</groupId>
 			<artifactId>jbanking</artifactId>
 			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${org.springframework.version}</version>
+			<scope>provided</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.6-rc1</version>
 			<scope>provided</scope>
 			<optional>true</optional>
 		</dependency>
@@ -59,6 +75,12 @@
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>3.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${org.springframework.version}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

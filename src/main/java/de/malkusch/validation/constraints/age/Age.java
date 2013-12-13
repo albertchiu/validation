@@ -22,6 +22,8 @@ import de.malkusch.validation.validator.age.ReadablePartialAgeValidator;
 /**
  * The Date must be in the past and at least that years old.
  * 
+ * You have to provide joda-time for this constraint.
+ * 
  * @see ReadablePartial
  * @see ReadableInstant
  * @author Markus Malkusch <markus@malkusch.de>

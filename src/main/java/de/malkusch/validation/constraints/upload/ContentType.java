@@ -1,4 +1,4 @@
-package de.malkusch.validation.constraints;
+package de.malkusch.validation.constraints.upload;
 
 import static java.lang.annotation.ElementType.ANNOTATION_TYPE;
 import static java.lang.annotation.ElementType.FIELD;
@@ -12,23 +12,34 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-import de.malkusch.validation.validator.BICValidator;
+import org.springframework.web.multipart.MultipartFile;
+
+import de.malkusch.validation.validator.ContentTypeValidator;
 
 /**
- * The String must be a valid BIC address.
+ * The MultipartFile must match a ContentType.
+ * 
+ * This constraint works only on Spring's {@link MultipartFile}.
+ * You have to provide javax.mail for the matching.
  * 
  * @author Markus Malkusch <markus@malkusch.de>
  */
 @Target( { METHOD, FIELD, ANNOTATION_TYPE })
 @Retention(RUNTIME)
-@Constraint(validatedBy=BICValidator.class)
+@Constraint(validatedBy = ContentTypeValidator.class)
 @Documented
-public @interface BIC {
+public @interface ContentType {
 
-	String message() default "{de.malkusch.validation.constraints.BIC.message}";
+	String message() default "{de.malkusch.validation.constraints.upload.ContentType.message}";
 
     Class<?>[] groups() default {};
 
     Class<? extends Payload>[] payload() default {};
 	
+    /**
+	 * @return ContentType constraint
+	 * @see javax.mail.internet.ContentType#match(String)
+	 */
+    String value();
+    
 }

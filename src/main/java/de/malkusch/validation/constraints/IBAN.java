@@ -16,7 +16,7 @@ import de.malkusch.validation.validator.IBANValidator;
 
 /**
  * The String must be a valid IBAN address.
- *
+ * 
  * @author malkusch
  */
 @Target( { METHOD, FIELD, ANNOTATION_TYPE })
