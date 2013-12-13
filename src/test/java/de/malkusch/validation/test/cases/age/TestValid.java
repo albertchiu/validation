@@ -1,8 +1,10 @@
 package de.malkusch.validation.test.cases.age;
 
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
@@ -19,6 +21,16 @@ import de.malkusch.validation.test.model.AbstractBean;
  */
 public class TestValid extends AbstractValidTest {
 
+	public static class CalendarBean extends AbstractBean<Calendar> {
+		
+		@Override
+		@Age(20)
+		public Calendar getProperty() {
+			return super.getProperty();
+		}
+		
+	}
+	
 	public static class PartialBean extends AbstractBean<ReadablePartial> {
 
 		@Override
@@ -59,9 +71,11 @@ public class TestValid extends AbstractValidTest {
 				{ PartialBean.class, null },
 				{ InstantBean.class, null },
 				{ DateBean.class, null },
+				{ CalendarBean.class, null },
 				{ PartialBean.class, LocalDate.parse("1981-5-1") },
 				{ InstantBean.class, DateTime.parse("1981-5-1") },
-				{ DateBean.class, DateTime.parse("1981-5-1").toDate() }
+				{ DateBean.class, DateTime.parse("1981-5-1").toDate() },
+				{ CalendarBean.class, DateTime.parse("1981-5-1").toCalendar(Locale.getDefault()) }
 		});
 	}
 
