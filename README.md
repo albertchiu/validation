@@ -12,7 +12,9 @@ have to provide those dependencies:
 
 # Additional Validators for JSR-303 built-ins
 This package extends some JSR-303 built-in constraints with validators for additional types. Look into the
-package `de.malkusch.validation.validator.jsr303` to see which validators exist.
+package 
+[`de.malkusch.validation.validator.jsr303`](http://malkusch.github.io/validation/index.html?de/malkusch/validation/validator/jsr303/package-summary.html)
+ to see which validators exist.
 If you want to use these validators you have to include the mapping
 resource **META-INF/validation/mapping.xml**. This can be done by 
 preferably create the file **META-INF/validation.xml**
