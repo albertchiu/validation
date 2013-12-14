@@ -11,6 +11,7 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.ConstraintViolation;
 import javax.validation.Payload;
+import javax.validation.constraints.NotNull;
 
 import de.malkusch.validation.validator.internal.EqualPropertiesValidator;
 
@@ -18,10 +19,14 @@ import de.malkusch.validation.validator.internal.EqualPropertiesValidator;
  * The bean has properties with equal values.
  * 
  * Add this constraint at class level and name the property names
- * which have to be equal. Set {@link #violationOnPropery()} to true
+ * which have to be equal.
+ * 
+ * Properties which have Null values don't violate against this constraint.
+ * Annotate those properties with {@link NotNull}.
+ * 
+ * Set {@link #violationOnPropery()} to true
  * if you want the {@link ConstraintViolation} on each of the violating
- * properties instead of the bean. Properties which have Null values
- * don't violate against this constraint.
+ * properties instead of the bean. 
  * 
  * @author Markus Malkusch <markus@malkusch.de>
  * @since 0.1.0
@@ -44,7 +49,11 @@ public @interface EqualProperties {
 	String[] value();
 	
 	/**
-	 * @return Set true if the violation should be propagated on the violating properties.
+	 * Specifies whether the {@link ConstraintViolation} should be attached on each
+	 * violation property or on the bean. By default on the bean.
+	 * 
+	 * @return {@code true} if the violation should be attached on each violating property,
+	 *         {@code false} if it should be attached on the bean.
 	 */
 	boolean violationOnPropery() default false;
 
