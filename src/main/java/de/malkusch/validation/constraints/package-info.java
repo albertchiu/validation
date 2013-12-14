@@ -1,5 +1,5 @@
 /**
- * This packages contains additional JSR-303 compliant constraints. 
+ * Additional JSR-303 constraints. 
  * 
  * @author Markus Malkusch <markus@malkusch.de>
  */

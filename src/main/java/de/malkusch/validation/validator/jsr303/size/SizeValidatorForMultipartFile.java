@@ -9,6 +9,12 @@ import org.springframework.web.multipart.MultipartFile;
 /**
  * Validates a {@link Size} constraint against {@link MultipartFile}.
  * 
+ * You have to add this validator to the list of constraint validators.
+ * This is done by adding the resource META-INF/validation/mapping.xml to
+ * your Validation configuration. You have to either create a
+ * META-INF/validation.xml and add that mapping or you do it programmatically
+ * with {@link Configuration#addMapping(java.io.InputStream)}.
+ * 
  * @author Markus Malkusch <markus@malkusch.de>
  */
 public class SizeValidatorForMultipartFile implements ConstraintValidator<Size, MultipartFile> {
