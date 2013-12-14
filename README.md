@@ -1,7 +1,7 @@
 # Validation
 This library provides a set of additional JSR-303 constraints and validators.
 You find the constraints in the package
-`[de.malkusch.validation.constraints](http://malkusch.github.io/validation/index.html?de/malkusch/validation/constraints/package-summary.html)`.
+[`de.malkusch.validation.constraints`](http://malkusch.github.io/validation/index.html?de/malkusch/validation/constraints/package-summary.html).
 
 # Optional Dependencies
 Some constraints require further dependencies. If you want to use them you
