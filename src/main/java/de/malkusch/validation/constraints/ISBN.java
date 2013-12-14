@@ -27,8 +27,20 @@ import de.malkusch.validation.validator.internal.ISBNValidatorForString;
 @Documented
 public @interface ISBN {
 	
+	/**
+	 * ISBN type.
+	 * 
+	 * @author Markus Malkusch <markus@malkusch.de>
+	 */
 	static public enum Type {
+		/**
+		 * ISBN-13
+		 */
 		ISBN10,
+		
+		/**
+		 * ISBN-10
+		 */
 		ISBN13,
 	}
 

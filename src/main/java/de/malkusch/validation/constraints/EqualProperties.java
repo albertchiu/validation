@@ -44,7 +44,7 @@ public @interface EqualProperties {
 	Class<? extends Payload>[] payload() default {};
 
 	/**
-	 * @return property names (at least two) which have to have equal values.
+	 * property names (at least two) which have to have equal values.
 	 */
 	String[] value();
 	
