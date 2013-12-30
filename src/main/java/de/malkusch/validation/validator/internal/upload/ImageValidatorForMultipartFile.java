@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
+import javax.validation.ValidationException;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -28,7 +29,7 @@ public class ImageValidatorForMultipartFile implements ConstraintValidator<Image
 			return ImageIO.read(file.getInputStream()) != null;
 			
 		} catch (IOException e) {
-			throw new IllegalStateException(e);
+			throw new ValidationException(e);
 			
 		}
 	}
