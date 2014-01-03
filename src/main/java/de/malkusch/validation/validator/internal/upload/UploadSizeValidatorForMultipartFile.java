@@ -6,7 +6,7 @@ import javax.validation.ConstraintValidatorContext;
 import org.springframework.web.multipart.MultipartFile;
 
 import de.malkusch.validation.constraints.upload.UploadSize;
-import de.malkusch.validation.validator.jsr303.size.SizeValidatorForMultipartFile;
+import de.malkusch.validation.validator.jsr349.size.SizeValidatorForMultipartFile;
 
 /**
  * @deprecated use {@link SizeValidatorForMultipartFile}. 

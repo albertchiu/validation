@@ -1,5 +1,5 @@
 /**
- * Additional validators for JSR-303 built-in constraints.
+ * Additional validators for JSR-349 built-in constraints.
  *  
  * You have to add these validators to the list of constraint validators.
  * This is done by adding the resource META-INF/validation/mapping.xml to
@@ -8,9 +8,9 @@
  * with {@link Configuration#addMapping(java.io.InputStream)}.
  * 
  * @see javax.validation.ConstraintValidator
- * @see http://beanvalidation.org/1.0/spec/#xml-mapping-constraintdefinition 
+ * @see http://beanvalidation.org/1.1/spec/#xml-mapping-constraintdefinition
  *  
  * @author Markus Malkusch <markus@malkusch.de>
  */
-package de.malkusch.validation.validator.jsr303;
+package de.malkusch.validation.validator.jsr349;
 import javax.validation.Configuration;

@@ -1,5 +1,5 @@
 /**
- * Additional JSR-303 constraints. 
+ * Additional JSR-349 constraints. 
  * 
  * @author Markus Malkusch <markus@malkusch.de>
  */
