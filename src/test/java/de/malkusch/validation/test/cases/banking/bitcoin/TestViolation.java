@@ -1,7 +1,14 @@
 package de.malkusch.validation.test.cases.banking.bitcoin;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import javax.json.Json;
+import javax.json.JsonArray;
+import javax.json.JsonReader;
 
 import org.junit.runners.Parameterized.Parameters;
 
@@ -31,12 +38,26 @@ public class TestViolation extends AbstractViolationTest {
 	}
 	
 	@Parameters
-	static public List<Object[]> beans() {
+	static public List<Object[]> beans() throws IOException {
 		Violation[] violations = new Violation[]{new Violation(BitcoinAddress.class, "The Bitcoin address is invalid.")};
-		return Arrays.asList(new Object[][] {
+		List<Object[]> cases = new ArrayList<>( Arrays.asList(new Object[][] {
 				{ Bean.class, "xxx", violations },
 				{ Bean.class, "", violations },
-		});
+		}));
+		
+		try (InputStream stream
+				= TestValid.class.getClassLoader().getResourceAsStream("bitcoin/base58_keys_invalid.json");
+			 JsonReader jsonReader = Json.createReader(stream)) {
+			
+			JsonArray results = jsonReader.readArray();
+			for (JsonArray tupel : results.getValuesAs(JsonArray.class)) {
+				String address = tupel.getString(0);
+				cases.add(new Object[]{ Bean.class, address, violations });
+				
+			}
+		}
+		
+		return cases;
 	}
 
 }
