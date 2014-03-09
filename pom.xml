@@ -13,7 +13,7 @@
 	</parent>
 
 	<properties>
-		<org.springframework.version>3.2.4.RELEASE</org.springframework.version>
+		<org.springframework.version>4.0.2.RELEASE</org.springframework.version>
 	</properties>
 
 	<url>https://github.com/malkusch/${project.artifactId}</url>
@@ -69,7 +69,7 @@
 		<dependency>
 			<groupId>javax.mail</groupId>
 			<artifactId>mail</artifactId>
-			<version>1.4.6-rc1</version>
+			<version>1.4.7</version>
 			<scope>provided</scope>
 			<optional>true</optional>
 		</dependency>
@@ -85,19 +85,19 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
-			<version>5.0.1.Final</version>
+			<version>5.1.0.Final</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.glassfish.web</groupId>
+	 	<dependency>
+			<groupId>org.glassfish</groupId>
 			<artifactId>javax.el</artifactId>
-			<version>2.2.6</version>
+			<version>3.0.0</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
-			<version>3.1</version>
+			<version>3.3</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
