@@ -7,7 +7,7 @@ You find the constraints in the package
 * [`@Adult`](http://malkusch.github.io/validation/de/malkusch/validation/constraints/age/Adult.html): The Date must be at least 18 years old. You have to provide joda-time for this constraint.
 * [`@BIC`](http://malkusch.github.io/validation/de/malkusch/validation/constraints/banking/BIC.html): The String must be a valid BIC (Business Identifier Code) address.
 * [`@IBAN`](http://malkusch.github.io/validation/de/malkusch/validation/constraints/banking/IBAN.html): The String must be a valid IBAN (International Bank Account Number) address.
-<!--* [`@BitcoinAddress`](http://malkusch.github.io/validation/de/malkusch/validation/constraints/banking/BitcoinAddress.html): Validates a bitcoin address.-->
+* [`@BitcoinAddress`](http://malkusch.github.io/validation/de/malkusch/validation/constraints/banking/BitcoinAddress.html): Validates a bitcoin address.
 * [`@TLD`](http://malkusch.github.io/validation/de/malkusch/validation/constraints/net/TLD.html): The String is a Top Level Domain.
 * [`@Domain`](http://malkusch.github.io/validation/de/malkusch/validation/constraints/net/Domain.html): The String has to be a Domain.
 * [`@IPv4`](http://malkusch.github.io/validation/de/malkusch/validation/constraints/net/IPv4.html): The String has to be an IPv4 address.
