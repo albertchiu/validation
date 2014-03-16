@@ -67,6 +67,7 @@ abstract public class AbstractViolationTest {
 		}
 		
 		Assert.assertEquals(
+				String.format("%s was not invalid", property),
 				new HashSet<>(Arrays.asList(violations)),
 				actualViolations);
 	}
