@@ -8,7 +8,7 @@ import org.joda.time.Years;
 import de.malkusch.validation.constraints.age.Age;
 
 /**
- * @author Markus Malkusch <markus@malkusch.de>
+ * @author Markus Malkusch
  */
 abstract public class AbstractAgeValidator<T> implements ConstraintValidator<Age, T> {
 

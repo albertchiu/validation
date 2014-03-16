@@ -12,11 +12,11 @@ import de.malkusch.validation.test.cases.AbstractValidTest;
 import de.malkusch.validation.test.model.AbstractBean;
 
 /**
- * @author Markus Malkusch <markus@malkusch.de>
+ * @author Markus Malkusch
  */
 @Deprecated
 /**
- * @author Markus Malkusch <markus@malkusch.de>
+ * @author Markus Malkusch
  */
 public class TestValid extends AbstractValidTest {
 	

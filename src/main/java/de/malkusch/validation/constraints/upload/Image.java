@@ -25,7 +25,7 @@ import de.malkusch.validation.validator.internal.upload.ImageValidatorForMultipa
  * 
  * This constraint works only on Spring's {@link MultipartFile}.
  * 
- * @author Markus Malkusch <markus@malkusch.de>
+ * @author Markus Malkusch
  */
 @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
 @Retention(RUNTIME)

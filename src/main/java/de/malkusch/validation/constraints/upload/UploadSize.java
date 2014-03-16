@@ -27,7 +27,7 @@ import de.malkusch.validation.validator.jsr349.size.SizeValidatorForMultipartFil
  * 
  * @deprecated Use @{@link Size} annotation. See {@link SizeValidatorForMultipartFile}
  *             for how to activate that functionality. 
- * @author Markus Malkusch <markus@malkusch.de>
+ * @author Markus Malkusch
  */
 @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
 @Retention(RUNTIME)

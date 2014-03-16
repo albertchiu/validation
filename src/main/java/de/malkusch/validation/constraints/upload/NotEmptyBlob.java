@@ -20,7 +20,7 @@ import de.malkusch.validation.validator.internal.upload.NotEmptyBlobValidator;
  * 
  * Empty means it can be null, but it can't have the size of 0 bytes.
  * 
- * @author Markus Malkusch <markus@malkusch.de>
+ * @author Markus Malkusch
  */
 @Target({METHOD, FIELD, ANNOTATION_TYPE})
 @Retention(RUNTIME)

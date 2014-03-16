@@ -19,7 +19,7 @@ import de.malkusch.validation.validator.internal.banking.BICValidatorForString;
 /**
  * The String must be a valid BIC address.
  * 
- * @author Markus Malkusch <markus@malkusch.de>
+ * @author Markus Malkusch
  */
 @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
 @Retention(RUNTIME)

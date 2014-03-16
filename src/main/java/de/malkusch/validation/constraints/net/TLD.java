@@ -19,7 +19,7 @@ import de.malkusch.validation.validator.internal.net.TLDValidatorForString;
 /**
  * The String is a Top Level Domain.
  * 
- * @author Markus Malkusch <markus@malkusch.de>
+ * @author Markus Malkusch
  */
 @Constraint(validatedBy={ TLDValidatorForString.class })
 @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })

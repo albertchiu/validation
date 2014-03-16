@@ -30,7 +30,7 @@ import de.malkusch.validation.validator.internal.age.AgeValidatorForReadablePart
  * 
  * @see ReadablePartial
  * @see ReadableInstant
- * @author Markus Malkusch <markus@malkusch.de>
+ * @author Markus Malkusch
  */
 @Past
 @Target( { METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })

@@ -19,7 +19,7 @@ import de.malkusch.validation.validator.internal.net.IPv4ValidatorForString;
 /**
  * The String has to be an IPv4 address.
  * 
- * @author Markus Malkusch <markus@malkusch.de>
+ * @author Markus Malkusch
  */
 @Constraint(validatedBy={IPv4ValidatorForString.class})
 @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })

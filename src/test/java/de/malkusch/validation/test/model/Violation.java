@@ -6,7 +6,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 /**
- * @author Markus Malkusch <markus@malkusch.de>
+ * @author Markus Malkusch
  */
 public class Violation {
 

@@ -10,7 +10,7 @@
  * @see javax.validation.ConstraintValidator
  * @see http://beanvalidation.org/1.1/spec/#xml-mapping-constraintdefinition
  *  
- * @author Markus Malkusch <markus@malkusch.de>
+ * @author Markus Malkusch
  */
 package de.malkusch.validation.validator.jsr349;
 import javax.validation.Configuration;

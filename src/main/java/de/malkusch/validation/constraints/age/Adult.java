@@ -19,7 +19,7 @@ import javax.validation.Payload;
  * 
  * You have to provide joda-time for this constraint.
  * 
- * @author Markus Malkusch <markus@malkusch.de>
+ * @author Markus Malkusch
  */
 @Age(18)
 @Constraint(validatedBy={})

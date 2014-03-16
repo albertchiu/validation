@@ -22,7 +22,7 @@ import javax.validation.constraints.Size;
  * 
  * Those codes are upper case.
  * 
- * @author Markus Malkusch <markus@malkusch.de>
+ * @author Markus Malkusch
  */
 @Size(min=2, max=2)
 @Pattern(regexp="^[A-Z]*$")

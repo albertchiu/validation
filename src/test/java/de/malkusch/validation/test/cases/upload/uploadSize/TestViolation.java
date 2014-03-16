@@ -13,7 +13,7 @@ import de.malkusch.validation.test.model.AbstractBean;
 import de.malkusch.validation.test.model.Violation;
 
 /**
- * @author Markus Malkusch <markus@malkusch.de>
+ * @author Markus Malkusch
  */
 @Deprecated
 public class TestViolation extends AbstractViolationTest {

@@ -19,7 +19,7 @@ import de.malkusch.validation.validator.internal.ISBNValidatorForString;
 /**
  * The String has to be an ISBN.
  * 
- * @author Markus Malkusch <markus@malkusch.de>
+ * @author Markus Malkusch
  */
 @Constraint(validatedBy={ISBNValidatorForString.class})
 @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
@@ -30,7 +30,7 @@ public @interface ISBN {
 	/**
 	 * ISBN type.
 	 * 
-	 * @author Markus Malkusch <markus@malkusch.de>
+	 * @author Markus Malkusch
 	 */
 	static public enum Type {
 		/**

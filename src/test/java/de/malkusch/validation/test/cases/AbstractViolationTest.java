@@ -18,7 +18,7 @@ import de.malkusch.validation.test.model.AbstractBean;
 import de.malkusch.validation.test.model.Violation;
 
 /**
- * @author Markus Malkusch <markus@malkusch.de>
+ * @author Markus Malkusch
  */
 @RunWith(Parameterized.class)
 abstract public class AbstractViolationTest {

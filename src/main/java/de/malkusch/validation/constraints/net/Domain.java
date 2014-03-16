@@ -19,7 +19,7 @@ import de.malkusch.validation.validator.internal.net.DomainValidatorForString;
 /**
  * The String has to be a Domain.
  * 
- * @author Markus Malkusch <markus@malkusch.de>
+ * @author Markus Malkusch
  */
 @Constraint(validatedBy={DomainValidatorForString.class})
 @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })

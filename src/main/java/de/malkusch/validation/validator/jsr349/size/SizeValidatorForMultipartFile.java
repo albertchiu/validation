@@ -15,7 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
  * META-INF/validation.xml and add that mapping or you do it programmatically
  * with {@link Configuration#addMapping(java.io.InputStream)}.
  * 
- * @author Markus Malkusch <markus@malkusch.de>
+ * @author Markus Malkusch
  */
 public class SizeValidatorForMultipartFile implements ConstraintValidator<Size, MultipartFile> {
 	

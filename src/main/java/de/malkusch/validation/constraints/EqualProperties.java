@@ -28,7 +28,7 @@ import de.malkusch.validation.validator.internal.EqualPropertiesValidator;
  * if you want the {@link ConstraintViolation} on each of the violating
  * properties instead of the bean. 
  * 
- * @author Markus Malkusch <markus@malkusch.de>
+ * @author Markus Malkusch
  * @since 0.1.0
  */
 @Target({ TYPE, ANNOTATION_TYPE })

@@ -13,7 +13,7 @@ import org.junit.runners.Parameterized;
 import de.malkusch.validation.test.model.AbstractBean;
 
 /**
- * @author Markus Malkusch <markus@malkusch.de>
+ * @author Markus Malkusch
  */
 @RunWith(Parameterized.class)
 abstract public class AbstractValidTest {
