@@ -1,5 +1,6 @@
 package de.malkusch.validation.validator.jsr349.size;
 
+import javax.validation.Configuration;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import javax.validation.constraints.Size;

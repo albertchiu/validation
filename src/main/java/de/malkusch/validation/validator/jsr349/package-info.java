@@ -8,7 +8,7 @@
  * with {@link Configuration#addMapping(java.io.InputStream)}.
  * 
  * @see javax.validation.ConstraintValidator
- * @see http://beanvalidation.org/1.1/spec/#xml-mapping-constraintdefinition
+ * @see <a href="http://beanvalidation.org/1.1/spec/#xml-mapping-constraintdefinition">8.1.2. Overriding constraint definitions in XML</a>
  *  
  * @author Markus Malkusch
  */
