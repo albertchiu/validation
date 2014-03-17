@@ -23,10 +23,25 @@ import java.util.Arrays;
 /**
  * Helper for Bitcoin Base58 encoding.
  * 
- * <p>This class is a reduced fork of the Base58 class from
- * <a href="https://code.google.com/p/bitcoinj/">bitcoinj</a>.</p>
+ * <p>
+ *     This class is a reduced fork of the Base58 class from
+ *     <a href="https://code.google.com/p/bitcoinj/">bitcoinj</a>:
+ * </p>
+ * <ul>
+ *   <li>Everything was removed besides {@link #decodeChecked(String)}.</li>
+ *   <li>
+ *   	 The serialization of address decoding was removed by using
+ *       new {@link MessageDigest} objects instead of one synchronized singleton.
+ *   </li>
+ *   <li>
+ *       The type of {@link #ALPHABET} changed to String. It's more convenient
+ *       to have a String for the RegExp match in
+ *       {@link BitcoinAddressValidatorForString#isValid(String, javax.validation.ConstraintValidatorContext)}.
+ *   </li>
+ * </ul>
  * 
  * @see <a href="https://code.google.com/p/bitcoinj/source/browse/core/src/main/java/com/google/bitcoin/core/Base58.java">bitcoinj:Base58</a>
+ * @see <a href="https://github.com/bitcoinj/bitcoinj/pull/30">avoid synchronized blocks during address decoding</a>
  */
 class Base58 {
 	
