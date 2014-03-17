@@ -1,0 +1,12 @@
+de.malkusch.validation.constraints
+de.malkusch.validation.constraints.age
+de.malkusch.validation.constraints.banking
+de.malkusch.validation.constraints.net
+de.malkusch.validation.constraints.upload
+de.malkusch.validation.validator.internal
+de.malkusch.validation.validator.internal.age
+de.malkusch.validation.validator.internal.banking
+de.malkusch.validation.validator.internal.net
+de.malkusch.validation.validator.internal.upload
+de.malkusch.validation.validator.jsr349
+de.malkusch.validation.validator.jsr349.size
