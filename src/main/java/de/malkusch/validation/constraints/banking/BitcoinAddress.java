@@ -19,8 +19,8 @@ import de.malkusch.validation.validator.internal.banking.BitcoinAddressValidator
 /**
  * Validates a bitcoin address.
  *
- * @see https://en.bitcoin.it/wiki/Address
  * @author Markus Malkusch
+ * @see <a href="https://en.bitcoin.it/wiki/Address">https://en.bitcoin.it/wiki/Address</a>
  */
 @Target( { METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
 @Retention(RUNTIME)
