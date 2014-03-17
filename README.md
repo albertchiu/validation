@@ -1,22 +1,22 @@
 # Validation
 This library provides a set of additional bean validation (JSR 349 formerly JSR 303) constraints and validators.
 You find the constraints in the package
-[`de.malkusch.validation.constraints`](http://malkusch.github.io/validation/index.html?de/malkusch/validation/constraints/package-summary.html):
+[`de.malkusch.validation.constraints`](http://malkusch.github.io/validation/apidocs/de/malkusch/validation/constraints/package-summary.html):
 
-* [`@Age`](http://malkusch.github.io/validation/de/malkusch/validation/constraints/age/Age.html): The Date must be in the past and at least that years old. You have to provide joda-time for this constraint.
-* [`@Adult`](http://malkusch.github.io/validation/de/malkusch/validation/constraints/age/Adult.html): The Date must be at least 18 years old. You have to provide joda-time for this constraint.
-* [`@BIC`](http://malkusch.github.io/validation/de/malkusch/validation/constraints/banking/BIC.html): The String must be a valid BIC (Business Identifier Code) address.
-* [`@IBAN`](http://malkusch.github.io/validation/de/malkusch/validation/constraints/banking/IBAN.html): The String must be a valid IBAN (International Bank Account Number) address.
-* [`@BitcoinAddress`](http://malkusch.github.io/validation/de/malkusch/validation/constraints/banking/BitcoinAddress.html): Validates a bitcoin address.
-* [`@TLD`](http://malkusch.github.io/validation/de/malkusch/validation/constraints/net/TLD.html): The String is a Top Level Domain.
-* [`@Domain`](http://malkusch.github.io/validation/de/malkusch/validation/constraints/net/Domain.html): The String has to be a Domain.
-* [`@IPv4`](http://malkusch.github.io/validation/de/malkusch/validation/constraints/net/IPv4.html): The String has to be an IPv4 address.
-* [`@ContentType`](http://malkusch.github.io/validation/de/malkusch/validation/constraints/upload/ContentType.html): The Spring `MultipartFile` must match a ContentType. You have to provide javax.mail for the matching.
-* [`@Image`](http://malkusch.github.io/validation/de/malkusch/validation/constraints/upload/Image.html): The Spring `MultipartFile` must be an image.
-* [`@NotEmptyBlob`](http://malkusch.github.io/validation/de/malkusch/validation/constraints/upload/NotEmptyBlob.html): The `Blob` must not be empty (but can be null).
-* [`@Country`](http://malkusch.github.io/validation/de/malkusch/validation/constraints/Country.html): The String has to be a well formed ISO-3166-1 alpha-2 country code.
-* [`@EqualProperties`](http://malkusch.github.io/validation/de/malkusch/validation/constraints/EqualProperties.html): The bean has properties with equal values (e.g. two identical passwords).
-* [`@ISBN`](http://malkusch.github.io/validation/de/malkusch/validation/constraints/ISBN.html): The String has to be an ISBN (International Standard Book Number).
+* [`@Age`](http://malkusch.github.io/validation/apidocs/de/malkusch/validation/constraints/age/Age.html): The Date must be in the past and at least that years old. You have to provide joda-time for this constraint.
+* [`@Adult`](http://malkusch.github.io/validation/apidocs/de/malkusch/validation/constraints/age/Adult.html): The Date must be at least 18 years old. You have to provide joda-time for this constraint.
+* [`@BIC`](http://malkusch.github.io/validation/apidocs/de/malkusch/validation/constraints/banking/BIC.html): The String must be a valid BIC (Business Identifier Code) address.
+* [`@IBAN`](http://malkusch.github.io/validation/apidocs/de/malkusch/validation/constraints/banking/IBAN.html): The String must be a valid IBAN (International Bank Account Number) address.
+* [`@BitcoinAddress`](http://malkusch.github.io/validation/apidocs/de/malkusch/validation/constraints/banking/BitcoinAddress.html): Validates a bitcoin address.
+* [`@TLD`](http://malkusch.github.io/validation/apidocs/de/malkusch/validation/constraints/net/TLD.html): The String is a Top Level Domain.
+* [`@Domain`](http://malkusch.github.io/validation/apidocs/de/malkusch/validation/constraints/net/Domain.html): The String has to be a Domain.
+* [`@IPv4`](http://malkusch.github.io/validation/apidocs/de/malkusch/validation/constraints/net/IPv4.html): The String has to be an IPv4 address.
+* [`@ContentType`](http://malkusch.github.io/validation/apidocs/de/malkusch/validation/constraints/upload/ContentType.html): The Spring `MultipartFile` must match a ContentType. You have to provide javax.mail for the matching.
+* [`@Image`](http://malkusch.github.io/validation/apidocs/de/malkusch/validation/constraints/upload/Image.html): The Spring `MultipartFile` must be an image.
+* [`@NotEmptyBlob`](http://malkusch.github.io/validation/apidocs/de/malkusch/validation/constraints/upload/NotEmptyBlob.html): The `Blob` must not be empty (but can be null).
+* [`@Country`](http://malkusch.github.io/validation/apidocs/de/malkusch/validation/constraints/Country.html): The String has to be a well formed ISO-3166-1 alpha-2 country code.
+* [`@EqualProperties`](http://malkusch.github.io/validation/apidocs/de/malkusch/validation/constraints/EqualProperties.html): The bean has properties with equal values (e.g. two identical passwords).
+* [`@ISBN`](http://malkusch.github.io/validation/apidocs/de/malkusch/validation/constraints/ISBN.html): The String has to be an ISBN (International Standard Book Number).
 
 # Optional Dependencies
 Some constraints require further dependencies. If you want to use them you
@@ -26,10 +26,10 @@ have to provide those dependencies:
 * `de.malkusch.validation.constraints.upload.*` requires `org.springframework.web` and `javax.mail.mail`.
 
 # Additional Validators for JSR-349 built-ins
-[`de.malkusch.validation.validator.jsr349`](http://malkusch.github.io/validation/index.html?de/malkusch/validation/validator/jsr349/package-summary.html)
+[`de.malkusch.validation.validator.jsr349`](http://malkusch.github.io/validation/apidocs/de/malkusch/validation/validator/jsr349/package-summary.html)
 extends some JSR-349 built-in constraints with validators for additional types:
 
-* [`SizeValidatorForMultipartFile`](http://malkusch.github.io/validation/de/malkusch/validation/validator/jsr303/size/SizeValidatorForMultipartFile.html): Validates a `Size` constraint against a Spring `MultipartFile`.
+* [`SizeValidatorForMultipartFile`](http://malkusch.github.io/validation/apidocs/de/malkusch/validation/validator/jsr303/size/SizeValidatorForMultipartFile.html): Validates a `Size` constraint against a Spring `MultipartFile`.
 
 If you want to use these validators you have to include the mapping
 resource **META-INF/validation/mapping.xml**. This can be done by 
