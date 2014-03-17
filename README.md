@@ -29,7 +29,7 @@ have to provide those dependencies:
 [`de.malkusch.validation.validator.jsr349`](http://malkusch.github.io/validation/apidocs/de/malkusch/validation/validator/jsr349/package-summary.html)
 extends some JSR-349 built-in constraints with validators for additional types:
 
-* [`SizeValidatorForMultipartFile`](http://malkusch.github.io/validation/apidocs/de/malkusch/validation/validator/jsr303/size/SizeValidatorForMultipartFile.html): Validates a `Size` constraint against a Spring `MultipartFile`.
+* [`SizeValidatorForMultipartFile`](http://malkusch.github.io/validation/apidocs/de/malkusch/validation/validator/jsr349/size/SizeValidatorForMultipartFile.html): Validates a `Size` constraint against a Spring `MultipartFile`.
 
 If you want to use these validators you have to include the mapping
 resource **META-INF/validation/mapping.xml**. This can be done by 
