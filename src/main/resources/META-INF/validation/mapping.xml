@@ -10,4 +10,23 @@
 			</value>
 		</validated-by>
 	</constraint-definition>
+	
+	<constraint-definition annotation="javax.validation.constraints.Past">
+		<validated-by include-existing-validators="true">
+			<value>de.malkusch.validation.validator.jsr349.past.PastValidatorForChronoLocalDate
+			</value>
+			<value>de.malkusch.validation.validator.jsr349.past.PastValidatorForInstant
+			</value>
+			<value>de.malkusch.validation.validator.jsr349.past.PastValidatorForChronoLocalDateTime
+			</value>
+			<value>de.malkusch.validation.validator.jsr349.past.PastValidatorForOffsetDateTime
+			</value>
+			<value>de.malkusch.validation.validator.jsr349.past.PastValidatorForYear
+			</value>
+			<value>de.malkusch.validation.validator.jsr349.past.PastValidatorForYearMonth
+			</value>
+			<value>de.malkusch.validation.validator.jsr349.past.PastValidatorForChronoZonedDateTime
+			</value>
+		</validated-by>
+	</constraint-definition>
 </constraint-mappings>
