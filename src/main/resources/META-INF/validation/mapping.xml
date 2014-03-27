@@ -29,4 +29,23 @@
 			</value>
 		</validated-by>
 	</constraint-definition>
+	
+	<constraint-definition annotation="javax.validation.constraints.Future">
+		<validated-by include-existing-validators="true">
+			<value>de.malkusch.validation.validator.jsr349.future.FutureValidatorForChronoLocalDate
+			</value>
+			<value>de.malkusch.validation.validator.jsr349.future.FutureValidatorForInstant
+			</value>
+			<value>de.malkusch.validation.validator.jsr349.future.FutureValidatorForChronoLocalDateTime
+			</value>
+			<value>de.malkusch.validation.validator.jsr349.future.FutureValidatorForOffsetDateTime
+			</value>
+			<value>de.malkusch.validation.validator.jsr349.future.FutureValidatorForYear
+			</value>
+			<value>de.malkusch.validation.validator.jsr349.future.FutureValidatorForYearMonth
+			</value>
+			<value>de.malkusch.validation.validator.jsr349.future.FutureValidatorForChronoZonedDateTime
+			</value>
+		</validated-by>
+	</constraint-definition>
 </constraint-mappings>
