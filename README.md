@@ -53,6 +53,6 @@ You find this package in Maven central:
 <dependency>
     <groupId>de.malkusch.validation</groupId>
     <artifactId>validation</artifactId>
-    <version>0.2.1</version>
+    <version>0.3.0</version>
 </dependency>
 ```
