@@ -10,4 +10,6 @@ de.malkusch.validation.validator.internal.banking.bitcoin
 de.malkusch.validation.validator.internal.net
 de.malkusch.validation.validator.internal.upload
 de.malkusch.validation.validator.jsr349
+de.malkusch.validation.validator.jsr349.future
+de.malkusch.validation.validator.jsr349.past
 de.malkusch.validation.validator.jsr349.size
