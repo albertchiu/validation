@@ -15,28 +15,32 @@ import javax.validation.Constraint;
 import javax.validation.Payload;
 import javax.validation.constraints.Past;
 
-import org.joda.time.ReadableInstant;
-import org.joda.time.ReadablePartial;
-
 import de.malkusch.validation.validator.internal.age.AgeValidatorForCalendar;
 import de.malkusch.validation.validator.internal.age.AgeValidatorForDate;
-import de.malkusch.validation.validator.internal.age.AgeValidatorForReadableInstant;
-import de.malkusch.validation.validator.internal.age.AgeValidatorForReadablePartial;
+import de.malkusch.validation.validator.internal.age.AgeValidatorForInstant;
+import de.malkusch.validation.validator.internal.age.AgeValidatorForLocalDate;
+import de.malkusch.validation.validator.internal.age.AgeValidatorForLocalDateTime;
+import de.malkusch.validation.validator.internal.age.AgeValidatorForOffsetDateTime;
+import de.malkusch.validation.validator.internal.age.AgeValidatorForPeriod;
+import de.malkusch.validation.validator.internal.age.AgeValidatorForTemporalAccessor;
+import de.malkusch.validation.validator.internal.age.AgeValidatorForYear;
+import de.malkusch.validation.validator.internal.age.AgeValidatorForYearMonth;
+import de.malkusch.validation.validator.internal.age.AgeValidatorForZonedDateTime;
 
 /**
  * The Date must be in the past and at least that years old.
  * 
- * You have to provide joda-time for this constraint.
- * 
- * @see ReadablePartial
- * @see ReadableInstant
  * @author Markus Malkusch
  */
 @Past
 @Target( { METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
 @Retention(RUNTIME)
-@Constraint(validatedBy = { 
-		AgeValidatorForReadablePartial.class, AgeValidatorForReadableInstant.class,
+@Constraint(validatedBy = {
+		AgeValidatorForZonedDateTime.class,
+		AgeValidatorForOffsetDateTime.class, AgeValidatorForYearMonth.class,
+		AgeValidatorForLocalDateTime.class, AgeValidatorForYear.class,
+		AgeValidatorForInstant.class, AgeValidatorForLocalDate.class,
+		AgeValidatorForTemporalAccessor.class, AgeValidatorForPeriod.class,
 		AgeValidatorForDate.class, AgeValidatorForCalendar.class })
 @Documented
 public @interface Age {

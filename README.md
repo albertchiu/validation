@@ -3,8 +3,8 @@ This library provides a set of additional bean validation (JSR 349 formerly JSR 
 You find the constraints in the package
 [`de.malkusch.validation.constraints`](http://malkusch.github.io/validation/apidocs/de/malkusch/validation/constraints/package-summary.html):
 
-* [`@Age`](http://malkusch.github.io/validation/apidocs/de/malkusch/validation/constraints/age/Age.html): The Date must be in the past and at least that years old. You have to provide joda-time for this constraint.
-* [`@Adult`](http://malkusch.github.io/validation/apidocs/de/malkusch/validation/constraints/age/Adult.html): The Date must be at least 18 years old. You have to provide joda-time for this constraint.
+* [`@Age`](http://malkusch.github.io/validation/apidocs/de/malkusch/validation/constraints/age/Age.html): The Date must be in the past and at least that years old.
+* [`@Adult`](http://malkusch.github.io/validation/apidocs/de/malkusch/validation/constraints/age/Adult.html): The Date must be at least 18 years old.
 * [`@BIC`](http://malkusch.github.io/validation/apidocs/de/malkusch/validation/constraints/banking/BIC.html): The String must be a valid BIC (Business Identifier Code) address.
 * [`@IBAN`](http://malkusch.github.io/validation/apidocs/de/malkusch/validation/constraints/banking/IBAN.html): The String must be a valid IBAN (International Bank Account Number) address.
 * [`@BitcoinAddress`](http://malkusch.github.io/validation/apidocs/de/malkusch/validation/constraints/banking/BitcoinAddress.html): Validates a bitcoin address.
@@ -22,14 +22,15 @@ You find the constraints in the package
 Some constraints require further dependencies. If you want to use them you
 have to provide those dependencies:
 
-* `de.malkusch.validation.constraints.age.*` requires `joda-time.joda-time`.
 * `de.malkusch.validation.constraints.upload.*` requires `org.springframework.web` and `javax.mail.mail`.
 
 # Additional Validators for JSR-349 built-ins
 [`de.malkusch.validation.validator.jsr349`](http://malkusch.github.io/validation/apidocs/de/malkusch/validation/validator/jsr349/package-summary.html)
 extends some JSR-349 built-in constraints with validators for additional types:
 
-* [`SizeValidatorForMultipartFile`](http://malkusch.github.io/validation/apidocs/de/malkusch/validation/validator/jsr349/size/SizeValidatorForMultipartFile.html): Validates a `Size` constraint against a Spring `MultipartFile`.
+* [`SizeValidatorForMultipartFile`](http://malkusch.github.io/validation/apidocs/de/malkusch/validation/validator/jsr349/size/SizeValidatorForMultipartFile.html): Validates a `@Size` constraint against a Spring `MultipartFile`.
+* `PastValidatorFor…`: Validates a `@Past` constraint against `java.time` (JSR 310: Date and Time API) objects.
+* `FutureValidatorFor…`: Validates a `@Future` constraint against `java.time` (JSR 310: Date and Time API) objects.
 
 If you want to use these validators you have to include the mapping
 resource **META-INF/validation/mapping.xml**. This can be done by 

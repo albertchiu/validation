@@ -1,15 +1,12 @@
 package de.malkusch.validation.test.cases.age;
 
+import java.time.Instant;
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
-import org.joda.time.DateTime;
-import org.joda.time.LocalDate;
-import org.joda.time.ReadableInstant;
-import org.joda.time.ReadablePartial;
 import org.junit.runners.Parameterized.Parameters;
 
 import de.malkusch.validation.constraints.age.Age;
@@ -31,24 +28,14 @@ public class TestValid extends AbstractValidTest {
 		
 	}
 	
-	public static class PartialBean extends AbstractBean<ReadablePartial> {
+	public static class LocalDateBean extends AbstractBean<LocalDate> {
 
 		@Override
 		@Age(20)
-		public ReadablePartial getProperty() {
+		public LocalDate getProperty() {
 			return super.getProperty();
 		}
 
-	}
-	
-	public static class InstantBean extends AbstractBean<ReadableInstant> {
-		
-		@Override
-		@Age(20)
-		public ReadableInstant getProperty() {
-			return super.getProperty();
-		}
-		
 	}
 	
 	public static class DateBean extends AbstractBean<Date> {
@@ -67,15 +54,14 @@ public class TestValid extends AbstractValidTest {
 
 	@Parameters
 	static public List<Object[]> beans() {
+		
 		return Arrays.asList(new Object[][] { 
-				{ PartialBean.class, null },
-				{ InstantBean.class, null },
+				{ LocalDateBean.class, null },
 				{ DateBean.class, null },
 				{ CalendarBean.class, null },
-				{ PartialBean.class, LocalDate.parse("1981-5-1") },
-				{ InstantBean.class, DateTime.parse("1981-5-1") },
-				{ DateBean.class, DateTime.parse("1981-5-1").toDate() },
-				{ CalendarBean.class, DateTime.parse("1981-5-1").toCalendar(Locale.getDefault()) }
+				{ LocalDateBean.class, LocalDate.parse("1981-05-03") },
+				{ DateBean.class, Date.from(Instant.parse("1981-05-02T10:15:30.00Z")) },
+				{ CalendarBean.class, new Calendar.Builder().setDate(1981, 1, 5).build() }
 		});
 	}
 

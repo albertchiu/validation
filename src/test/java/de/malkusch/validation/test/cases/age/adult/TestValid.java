@@ -1,10 +1,9 @@
 package de.malkusch.validation.test.cases.age.adult;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
-import org.joda.time.LocalDate;
-import org.joda.time.Years;
 import org.junit.runners.Parameterized.Parameters;
 
 import de.malkusch.validation.constraints.age.Adult;
@@ -34,8 +33,8 @@ public class TestValid extends AbstractValidTest {
 	static public List<Object[]> beans() {
 		return Arrays.asList(new Object[][] {
 				{ Bean.class, null },
-				{ Bean.class, LocalDate.now().minus(Years.years(18)) },
-				{ Bean.class, LocalDate.now().minus(Years.years(50)) },
+				{ Bean.class, LocalDate.now().minusYears(18) },
+				{ Bean.class, LocalDate.now().minusYears(50) },
 		});
 	}
 

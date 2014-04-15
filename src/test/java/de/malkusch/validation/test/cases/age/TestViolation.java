@@ -1,18 +1,15 @@
 package de.malkusch.validation.test.cases.age;
 
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 import javax.validation.constraints.Past;
 
-import org.joda.time.DateTime;
-import org.joda.time.Days;
-import org.joda.time.LocalDate;
-import org.joda.time.ReadableInstant;
-import org.joda.time.ReadablePartial;
 import org.junit.runners.Parameterized.Parameters;
 
 import de.malkusch.validation.constraints.age.Age;
@@ -35,24 +32,14 @@ public class TestViolation extends AbstractViolationTest {
 		
 	}
 	
-	public static class PartialBean extends AbstractBean<ReadablePartial> {
+	public static class LocalDateBean extends AbstractBean<LocalDate> {
 
 		@Override
 		@Age(20)
-		public ReadablePartial getProperty() {
+		public LocalDate getProperty() {
 			return super.getProperty();
 		}
 
-	}
-	
-	public static class InstantBean extends AbstractBean<ReadableInstant> {
-		
-		@Override
-		@Age(20)
-		public ReadableInstant getProperty() {
-			return super.getProperty();
-		}
-		
 	}
 	
 	public static class DateBean extends AbstractBean<Date> {
@@ -75,12 +62,13 @@ public class TestViolation extends AbstractViolationTest {
 		Violation violation = new Violation(Age.class, "The Age must be at least 20 years.");
 		Violation[] violations = new Violation[]{ violation };
 		Violation[] pastViolations = new Violation[]{ violation, new Violation(Past.class, "must be in the past") };
+		LocalDate yesterday = LocalDate.now().minusDays(1);
+		Date yesterdayDate = Date.from(Instant.from(yesterday.atStartOfDay(ZoneId.systemDefault())));
 		return Arrays.asList(new Object[][] {
-				{ PartialBean.class,  LocalDate.now().minus(Days.ONE), violations },
-				{ InstantBean.class,  DateTime.now().minus(Days.ONE), violations },
-				{ DateBean.class,     DateTime.now().minus(Days.ONE).toDate(), violations },
-				{ CalendarBean.class, DateTime.now().minus(Days.ONE).toCalendar(Locale.getDefault()), violations },
-				{ PartialBean.class,  LocalDate.now().plusYears(5), pastViolations },
+				{ LocalDateBean.class,  yesterday, violations },
+				{ DateBean.class,     yesterdayDate, violations },
+				{ CalendarBean.class, new Calendar.Builder().setInstant(yesterdayDate).build(), violations },
+				{ LocalDateBean.class,  LocalDate.now().plusYears(5), pastViolations },
 		});
 	}
 

@@ -1,9 +1,10 @@
 package de.malkusch.validation.validator.internal.age;
 
+import java.time.LocalDate;
+import java.time.Period;
+
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-
-import org.joda.time.Years;
 
 import de.malkusch.validation.constraints.age.Age;
 
@@ -12,24 +13,23 @@ import de.malkusch.validation.constraints.age.Age;
  */
 abstract public class AbstractAgeValidator<T> implements ConstraintValidator<Age, T> {
 
-	private int age;
+	private AgeValidatorForPeriod periodValidator = new AgeValidatorForPeriod();
 	
-	abstract protected Years getAge(T date);
+	abstract protected LocalDate convert(T birthday);
 	
 	@Override
 	public void initialize(Age constraintAnnotation) {
-		age = constraintAnnotation.value();
+		periodValidator.initialize(constraintAnnotation);
 	}
 
 	@Override
-	public boolean isValid(T date, ConstraintValidatorContext context) {
-		if (date == null) {
+	public boolean isValid(T birthday, ConstraintValidatorContext context) {
+		if (birthday == null) {
 			return true;
 			
 		}
-		Years age = getAge(date);
-		return ! age.isLessThan(Years.years(this.age));
+		Period age = Period.between(convert(birthday), LocalDate.now());
+		return periodValidator.isValid(age, context);
 	}
-
-
+	
 }

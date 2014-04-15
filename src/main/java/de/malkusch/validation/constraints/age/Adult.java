@@ -17,8 +17,6 @@ import javax.validation.Payload;
 /**
  * The Date must be at least 18 years old.
  * 
- * You have to provide joda-time for this constraint.
- * 
  * @author Markus Malkusch
  */
 @Age(18)

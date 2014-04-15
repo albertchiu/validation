@@ -1,12 +1,9 @@
 package de.malkusch.validation.test.cases.age.adult;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
-import org.joda.time.Days;
-import org.joda.time.LocalDate;
-import org.joda.time.ReadablePartial;
-import org.joda.time.Years;
 import org.junit.runners.Parameterized.Parameters;
 
 import de.malkusch.validation.constraints.age.Adult;
@@ -20,11 +17,11 @@ import de.malkusch.validation.test.model.Violation;
  */
 public class TestViolation extends AbstractViolationTest {
 	
-	public static class Bean extends AbstractBean<ReadablePartial> {
+	public static class Bean extends AbstractBean<LocalDate> {
 		
 		@Override
 		@Adult
-		public ReadablePartial getProperty() {
+		public LocalDate getProperty() {
 			return super.getProperty();
 		}
 		
@@ -39,8 +36,8 @@ public class TestViolation extends AbstractViolationTest {
 	static public List<Object[]> beans() {
 		Violation[] violations = new Violation[]{new Violation(Age.class, "The Age must be at least 18 years.")};
 		return Arrays.asList(new Object[][] {
-				{ Bean.class, new LocalDate().minus(Days.ONE), violations },
-				{ Bean.class, LocalDate.now().minus(Years.years(18)).plus(Days.days(1)), violations },
+				{ Bean.class, LocalDate.now().minusDays(1), violations },
+				{ Bean.class, LocalDate.now().minusYears(18).plusDays(1), violations },
 		});
 	}
 
