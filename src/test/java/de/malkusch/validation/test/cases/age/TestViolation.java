@@ -2,7 +2,13 @@ package de.malkusch.validation.test.cases.age;
 
 import java.time.Instant;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import java.time.OffsetTime;
+import java.time.Year;
+import java.time.YearMonth;
 import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
@@ -14,6 +20,7 @@ import org.junit.runners.Parameterized.Parameters;
 
 import de.malkusch.validation.constraints.age.Age;
 import de.malkusch.validation.test.cases.AbstractViolationTest;
+import de.malkusch.validation.test.cases.age.TestValid.InstantBean;
 import de.malkusch.validation.test.model.AbstractBean;
 import de.malkusch.validation.test.model.Violation;
 
@@ -51,6 +58,56 @@ public class TestViolation extends AbstractViolationTest {
 		}
 		
 	}
+	
+	public static class LocalDateTimeBean extends AbstractBean<LocalDateTime> {
+		
+		@Override
+		@Age(20)
+		public LocalDateTime getProperty() {
+			return super.getProperty();
+		}
+		
+	}
+	
+	public static class OffsetDateTimeBean extends AbstractBean<OffsetDateTime> {
+		
+		@Override
+		@Age(20)
+		public OffsetDateTime getProperty() {
+			return super.getProperty();
+		}
+		
+	}
+	
+	public static class YearBean extends AbstractBean<Year> {
+		
+		@Override
+		@Age(20)
+		public Year getProperty() {
+			return super.getProperty();
+		}
+		
+	}
+	
+	public static class YearMonthBean extends AbstractBean<YearMonth> {
+		
+		@Override
+		@Age(20)
+		public YearMonth getProperty() {
+			return super.getProperty();
+		}
+		
+	}
+	
+	public static class ZonedDateTimeBean extends AbstractBean<ZonedDateTime> {
+		
+		@Override
+		@Age(20)
+		public ZonedDateTime getProperty() {
+			return super.getProperty();
+		}
+		
+	}
 
 	public <T>TestViolation(Class<AbstractBean<T>> beanType, T property,
 			Violation[] violations) {
@@ -69,6 +126,12 @@ public class TestViolation extends AbstractViolationTest {
 				{ DateBean.class,     yesterdayDate, violations },
 				{ CalendarBean.class, new Calendar.Builder().setInstant(yesterdayDate).build(), violations },
 				{ LocalDateBean.class,  LocalDate.now().plusYears(5), pastViolations },
+				{ InstantBean.class, yesterdayDate.toInstant(), violations },
+				{ LocalDateTimeBean.class, yesterday.atStartOfDay(), violations },
+				{ OffsetDateTimeBean.class, yesterday.atTime(OffsetTime.MIN), violations },
+				{ YearBean.class, Year.now().minusYears(1), violations },
+				{ YearMonthBean.class, YearMonth.now().minusYears(1), violations },
+				{ ZonedDateTimeBean.class, ZonedDateTime.now().minusMonths(1), violations },
 		});
 	}
 
