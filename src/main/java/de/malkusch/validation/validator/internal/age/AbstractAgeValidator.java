@@ -2,6 +2,7 @@ package de.malkusch.validation.validator.internal.age;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.ZoneId;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
@@ -17,6 +18,10 @@ abstract public class AbstractAgeValidator<T> implements ConstraintValidator<Age
 	
 	abstract protected LocalDate convert(T birthday);
 	
+	ZoneId getZoneId(T context) {
+		return ZoneId.systemDefault();
+	}
+	
 	@Override
 	public void initialize(Age constraintAnnotation) {
 		periodValidator.initialize(constraintAnnotation);
@@ -28,7 +33,7 @@ abstract public class AbstractAgeValidator<T> implements ConstraintValidator<Age
 			return true;
 			
 		}
-		Period age = Period.between(convert(birthday), LocalDate.now());
+		Period age = Period.between(convert(birthday), LocalDate.now(getZoneId(birthday)));
 		return periodValidator.isValid(age, context);
 	}
 	
