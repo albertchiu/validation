@@ -24,7 +24,7 @@ import de.malkusch.validation.validator.internal.EqualPropertiesValidator;
  * Properties which have Null values don't violate against this constraint.
  * Annotate those properties with {@link NotNull}.
  * 
- * Set {@link #violationOnPropery()} to true
+ * Set {@link #violationOnProperty()} to true
  * if you want the {@link ConstraintViolation} on each of the violating
  * properties instead of the bean. 
  * 
@@ -55,7 +55,7 @@ public @interface EqualProperties {
 	 * @return {@code true} if the violation should be attached on each violating property,
 	 *         {@code false} if it should be attached on the bean.
 	 */
-	boolean violationOnPropery() default false;
+	boolean violationOnProperty() default false;
 
 	/**
 	 * Defines several {@link EqualProperties} annotations on the same element.

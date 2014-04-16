@@ -25,7 +25,7 @@ public class EqualPropertiesValidator implements
 			
 		}
 		
-		violationOnProperty = constraint.violationOnPropery();
+		violationOnProperty = constraint.violationOnProperty();
 	}
 
 	@Override
