@@ -6,7 +6,7 @@ import java.time.Year;
 public class AgeValidatorForYear extends AbstractAgeValidator<Year> {
 	
 	@Override
-	protected LocalDate convert(Year birthday) {
+	LocalDate convert(Year birthday) {
 		return birthday.atDay(1);
 	}
 	

@@ -12,7 +12,7 @@ public class AgeValidatorForZonedDateTime extends AbstractAgeValidator<ZonedDate
 	}
 	
 	@Override
-	protected LocalDate convert(ZonedDateTime birthday) {
+	LocalDate convert(ZonedDateTime birthday) {
 		return birthday.toLocalDate();
 	}
 	

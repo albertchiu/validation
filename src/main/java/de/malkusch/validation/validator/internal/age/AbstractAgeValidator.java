@@ -16,7 +16,7 @@ abstract public class AbstractAgeValidator<T> implements ConstraintValidator<Age
 
 	private AgeValidatorForPeriod periodValidator = new AgeValidatorForPeriod();
 	
-	abstract protected LocalDate convert(T birthday);
+	abstract LocalDate convert(T birthday);
 	
 	ZoneId getZoneId(T context) {
 		return ZoneId.systemDefault();

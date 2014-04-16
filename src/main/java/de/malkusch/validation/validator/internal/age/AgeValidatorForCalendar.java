@@ -12,7 +12,7 @@ public class AgeValidatorForCalendar extends AbstractAgeValidator<Calendar> {
 	}
 	
 	@Override
-	protected LocalDate convert(Calendar birthday) {
+	LocalDate convert(Calendar birthday) {
 		return birthday.toInstant().atZone(birthday.getTimeZone().toZoneId()).toLocalDate();
 	}
 

@@ -12,7 +12,7 @@ public class AgeValidatorForOffsetDateTime extends AbstractAgeValidator<OffsetDa
 	}
 	
 	@Override
-	protected LocalDate convert(OffsetDateTime birthday) {
+	LocalDate convert(OffsetDateTime birthday) {
 		return birthday.toLocalDate();
 	}
 	

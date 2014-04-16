@@ -6,7 +6,7 @@ import java.time.YearMonth;
 public class AgeValidatorForYearMonth extends AbstractAgeValidator<YearMonth> {
 	
 	@Override
-	protected LocalDate convert(YearMonth birthday) {
+	LocalDate convert(YearMonth birthday) {
 		return birthday.atDay(1);
 	}
 	

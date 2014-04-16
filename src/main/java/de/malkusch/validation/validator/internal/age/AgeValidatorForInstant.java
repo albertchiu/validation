@@ -7,7 +7,7 @@ import java.time.ZoneId;
 public class AgeValidatorForInstant extends AbstractAgeValidator<Instant> {
 	
 	@Override
-	protected LocalDate convert(Instant birthday) {
+	LocalDate convert(Instant birthday) {
 		return birthday.atZone(ZoneId.systemDefault()).toLocalDate();
 	}
 	

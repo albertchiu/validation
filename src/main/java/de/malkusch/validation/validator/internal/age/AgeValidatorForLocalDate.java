@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class AgeValidatorForLocalDate extends AbstractAgeValidator<LocalDate> {
 
 	@Override
-	protected LocalDate convert(LocalDate birthday) {
+	LocalDate convert(LocalDate birthday) {
 		return birthday;
 	}
 	
