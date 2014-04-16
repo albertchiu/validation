@@ -17,7 +17,7 @@ import javax.validation.Payload;
 import de.malkusch.validation.validator.internal.banking.bitcoin.BitcoinAddressValidatorForString;
 
 /**
- * Validates a bitcoin address.
+ * The String must be a bitcoin address.
  *
  * @author Markus Malkusch
  * @see <a href="https://en.bitcoin.it/wiki/Address">https://en.bitcoin.it/wiki/Address</a>
