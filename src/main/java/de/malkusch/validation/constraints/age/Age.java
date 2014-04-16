@@ -21,7 +21,6 @@ import de.malkusch.validation.validator.internal.age.AgeValidatorForInstant;
 import de.malkusch.validation.validator.internal.age.AgeValidatorForLocalDate;
 import de.malkusch.validation.validator.internal.age.AgeValidatorForLocalDateTime;
 import de.malkusch.validation.validator.internal.age.AgeValidatorForOffsetDateTime;
-import de.malkusch.validation.validator.internal.age.AgeValidatorForTemporalAccessor;
 import de.malkusch.validation.validator.internal.age.AgeValidatorForYear;
 import de.malkusch.validation.validator.internal.age.AgeValidatorForYearMonth;
 import de.malkusch.validation.validator.internal.age.AgeValidatorForZonedDateTime;
@@ -39,7 +38,6 @@ import de.malkusch.validation.validator.internal.age.AgeValidatorForZonedDateTim
 		AgeValidatorForOffsetDateTime.class, AgeValidatorForYearMonth.class,
 		AgeValidatorForLocalDateTime.class, AgeValidatorForYear.class,
 		AgeValidatorForInstant.class, AgeValidatorForLocalDate.class,
-		AgeValidatorForTemporalAccessor.class,
 		AgeValidatorForDate.class, AgeValidatorForCalendar.class })
 @Documented
 public @interface Age {

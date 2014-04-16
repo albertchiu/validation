@@ -4,7 +4,7 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
 
-public class AgeValidatorForInstant extends AbstractAgeValidatorForTemporalAccessor<Instant> {
+public class AgeValidatorForInstant extends AbstractAgeValidator<Instant> {
 	
 	@Override
 	protected LocalDate convert(Instant birthday) {
