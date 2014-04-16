@@ -13,7 +13,7 @@
 	</parent>
 
 	<properties>
-		<org.springframework.version>4.0.2.RELEASE</org.springframework.version>
+		<org.springframework.version>4.0.3.RELEASE</org.springframework.version>
 	</properties>
 
 	<url>https://github.com/malkusch/${project.artifactId}</url>
@@ -84,7 +84,7 @@
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
-			<version>3.3</version>
+			<version>3.3.2</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
